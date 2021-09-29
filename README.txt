@@ -1,3 +1,5 @@
+[Pantalla](pantalla.png)
+
 Creamos un proyecto vacío
 
 ```bash
