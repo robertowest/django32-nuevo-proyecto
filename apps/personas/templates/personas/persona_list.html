@@ -1,0 +1,48 @@
+{% extends 'personas/base.html' %}
+
+{% block content %}
+    <h1 class="my-4">
+        <small>Listado de Personas</small>
+    </h1>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div class="row">
+    {% if object_list %}
+        <div class="col-12" style="overflow-x: scroll">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Documento</th>
+                    <th scope="col">Ver</th>
+                    <th scope="col">Eliminar</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for persona in object_list %}
+                <tr>
+                    <td>{{ persona.nombre }}</td>
+                    <td>{{ persona.apellido }}</td>
+                    <td>{{ persona.documento }}</td>
+                    <td><a href="{% url 'persona:view' persona.id %}"><button type="button" class="btn btn-outline-primary btn-sm">Ver</button></a></td>
+                    <td><a href="{% url 'persona:delete' persona.id %}"><button type="button" class="btn btn-outline-danger btn-sm">Eliminar</button></a></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+        </div>
+    {% else %}
+    <div class="col-12">
+        <div class="alert alert-warning" role="alert">
+            No hay datos, <a class="badge badge-info" href="{% url 'persona:new' %}"><strong>pulse</strong></a> para agregar un registo.
+        </div>
+    </div>
+    {% endif %}
+    </div>
+{% endblock %}

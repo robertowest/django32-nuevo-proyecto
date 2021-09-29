@@ -1,0 +1,17 @@
+{% if form %} 
+    {% for field in form %}
+        <dl>
+            <dt>{{ field.label_tag }}</dt>
+            <dd>{{ field }}</dd>
+        </dl>
+    {% endfor %}
+
+{% elif object.get_fields %}
+    <dl class="inline">
+        {% for fld in object.get_fields %}
+            <dt>{{fld.name|capfirst}}</dt>
+            <dd>{{fld.value|escape|urlize}}</dd>
+        {% endfor %}
+    </dl>
+    
+{% endif %}

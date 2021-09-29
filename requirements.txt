@@ -1,0 +1,4 @@
+# mkdir static media templates
+django==3.2.7
+django-debug-toolbar==3.2.2
+psycopg2-binary==2.9.1

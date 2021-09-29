@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static mis_tags %}
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        
+        <title>
+            {% block title %}Django 3.2{% endblock %}
+        </title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="{% static 'vendors/bootstrap/bootstrap.min.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/estilo.css' %}" rel="stylesheet" />
+
+        <!-- Favicons -->
+        <link rel="apple-touch-icon" href="{% static 'img/favicons/apple-touch-icon.png' %}" sizes="180x180">
+        <link rel="icon" href="{% static 'img/favicons/favicon-32x32.png' %}" sizes="32x32" type="image/png">
+        <link rel="icon" href="{% static 'img/favicons/favicon-16x16.png' %}" sizes="16x16" type="image/png">
+        <link rel="icon" href="{% static 'img/favicons/favicon.ico' %}">
+
+        <!-- CSS en cabecera  -->
+        {% block css %}
+        {% endblock css %}
+
+        <!-- JS en cabecera  -->
+        {% block jsheader %}
+        {% endblock jsheader %}
+    </head>
+    <body>
+        <!-- navbar (si existe lo muestra) -->
+        {% block navbar %}
+        {% include 'navbar'|local_include_exists:request.resolver_match.app_name %}
+        {% endblock %}
+
+        <main role="main" class="container">
+            <div class="jumbotron">
+                {% block content %}
+                <h1>Navbar fijo</h1>
+                <p class="lead">Este ejemplo demuestra como utilizar la barra de navegación fija en la parte superior. A medida que se desplaza, permanecerá fijo en la parte superior de la ventana gráfica de su navegador.</p>
+                <a class="btn btn-lg btn-primary" href="/docs/4.6/components/navbar/" role="button">Ver documentación &raquo;</a>
+                {% endblock content %}
+            </div>
+        </main>
+
+        <!-- ventanas modales -->
+        {% block modal %}
+        {% endblock modal %}
+
+        <script src="{% static 'vendors/fontawesome/all.min.js' %}"></script>
+        <script src="{% static 'vendors/jquery/jquery.min.js' %}"></script>
+        <script>window.jQuery || document.write('<script src="{% static 'vendors/jquery/jquery.min.js' %}"><\/script>')</script>
+        <script src="{% static 'vendors/bootstrap/bootstrap.bundle.min.js' %}"></script>
+
+        <!-- JS en body -->
+        {% block js %}
+        {% endblock js %}
+    </body>
+</html>

@@ -1,0 +1,77 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+{% load mis_tags %}
+{% load crispy_forms_tags %}
+{% load render_table from django_tables2 %}
+
+
+<!-- título de la página  -->
+{% block title %}
+    {{view.model|verbose_name}}
+{% endblock %} 
+
+<!-- estilos personalizados  -->
+{% block stylesheets %}
+{% endblock stylesheets %}
+
+
+{% block content %}
+    <main>
+        <div class="container-fluid">
+            <h1 class="mt-4">Listado : {{view.model|verbose_name_plural}}</h1>
+
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                <li class="breadcrumb-item active">Tabla</li>
+            </ol>
+
+            {% if filter %}
+            <div class="card mb-4 collapse" id="collapseFiltro">
+                <div class="card-body">
+                    {% crispy filter.form filter.form.helper %}
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table mr-1"></i> Tabla {{view.model|verbose_name}}
+                    {% if filter %}
+                    <small class="float-sm-right">
+                        <a class="btn btn-sm btn-primary" data-toggle="collapse" href="#collapseFiltro" role="button" aria-expanded="false" aria-controls="collapseFiltro">
+                            <i class="fas fa-filter mr-1"></i> Filtro
+                        </a>
+                    </small>
+                    {% endif %}
+                    <small class="float-sm-right mr-2">
+                        <a class="btn btn-sm btn-success text-light" href="{{view.model.get_create_url}}">
+                            <i class="fas fa-plus"></i> Nuevo
+                        </a>
+                    </small>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        {% render_table table %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
+
+
+{% block modal %}
+    {% include "modal/modal.html" %}
+{% endblock modal %}
+
+
+<!-- jscript de la página  -->
+{% block javascripts %}
+<script src="{% static 'modal/js/modal.js' %}"></script>
+<script type="text/javascript">
+    $(function() {
+        $.modal({debug: false});
+    });
+</script>
+{% endblock javascripts %}

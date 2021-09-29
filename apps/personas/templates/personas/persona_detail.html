@@ -1,0 +1,22 @@
+{% extends 'personas/base.html' %}
+
+{% block content %}
+    <h1 class="my-4">Ver - <small>{{ object.nombre }}</small>
+    </h1>
+    <div class="row">
+        <div class="col-12">
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Nombre:</strong> {{ object.nombre }}</li>
+              <li class="list-group-item"><strong>Apellido:</strong> {{ object.apellido }}</li>
+              <li class="list-group-item"><strong>Documento:</strong> {{ object.documento }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row top-buffer">
+        <div class="col-12">
+                <a href="{% url 'persona:edit' object.id %}"><button type="button" class="btn btn-success">Modificar</button></a>
+                <a href="{% url 'persona:list' %}"><button type="button" class="btn btn-secondary">Regresar</button></a>
+        </div>
+    </div>
+{% endblock %}

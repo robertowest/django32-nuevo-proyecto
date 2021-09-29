@@ -1,0 +1,24 @@
+{% load crispy_forms_tags %}
+
+{% if form.errors %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ error|escape }}
+        </div>
+    {% endfor %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{ error|escape }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+
+{% crispy form %}

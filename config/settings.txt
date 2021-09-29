@@ -1,0 +1,87 @@
+# -------------------------------------------------------------------
+# redirecciona a home al realizar un login exitoso
+# -------------------------------------------------------------------
+LOGIN_URL = '/users/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_URL = '/users/logout/'
+LOGOUT_REDIRECT_URL = '/'
+
+
+# -------------------------------------------------------------------
+# grapelli (personalización de site admin) debe ir antes de cualquier otra app
+# -------------------------------------------------------------------
+# INSTALLED_APPS = ['grappelli'] + INSTALLED_APPS
+
+
+# -------------------------------------------------------------------
+# autenticación personalizada
+# -------------------------------------------------------------------
+INSTALLED_APPS += ['core.users',]
+
+
+# -------------------------------------------------------------------
+# configuración para django-crispy-forms
+# -------------------------------------------------------------------
+INSTALLED_APPS += ['crispy_forms',]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+# -------------------------------------------------------------------
+# configuración para django-table
+# -------------------------------------------------------------------
+INSTALLED_APPS += ['django_tables2',]
+
+
+# -------------------------------------------------------------------
+# configuración para django-table
+# -------------------------------------------------------------------
+INSTALLED_APPS += ['django_filters',]
+
+
+# # -------------------------------------------------------------------
+# # configuración para django-smart-selects
+# # -------------------------------------------------------------------
+# INSTALLED_APPS += ['smart_selects',]
+# # JQUERY_URL = True
+# USE_DJANGO_JQUERY = True
+
+
+# -------------------------------------------------------------------
+# configuración para django-select2
+# -------------------------------------------------------------------
+INSTALLED_APPS += ['django_select2']
+
+
+# -------------------------------------------------------------------
+# configuración para django-modal
+# https://github.com/Alex-CodeLab/django-modal
+# -------------------------------------------------------------------
+INSTALLED_APPS += ['core.modal',]
+
+
+# -------------------------------------------------------------------
+# aplicaciones solo para desarrollo
+# -------------------------------------------------------------------
+INSTALLED_APPS += [
+    'core.common',
+
+    'apps.diccionario',
+    'apps.domicilio',
+    'apps.comunicacion',
+    'apps.persona',
+    
+    'apps.afiliado',
+    'apps.certificado',
+]
+
+if DEBUG:
+    INSTALLED_APPS += [
+        'prueba.book',
+        'prueba.calculadora',
+        'prueba.form',
+        'prueba.graficos',
+        'prueba.registro',
+        'prueba.responsive',
+        'prueba.ventana',
+        'prueba.script',
+    ]

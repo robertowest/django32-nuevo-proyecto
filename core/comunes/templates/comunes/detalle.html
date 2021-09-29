@@ -1,0 +1,53 @@
+{% extends "layouts/base.html" %}
+
+{% load mis_tags %}
+
+
+<!-- título de la página  -->
+{% block title %}{{view.model|verbose_name}}{% endblock %} 
+
+
+<!-- estilos personalizados  -->
+{% block stylesheets %}
+<style>
+    dl.inline dd {
+        display: inline;
+        margin: 0;
+    }
+    dl.inline dd:after {
+        display: block;
+        content: '';
+    }
+    dl.inline dt {
+        display: inline-block;
+        min-width: 100px;
+    }
+</style>
+{% endblock stylesheets %}
+
+
+{% block content %}
+    <main>
+        <div class="container-fluid">
+            <h1 class="mt-4">Detalle : {{view.model|verbose_name}}</h1>
+
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="{{view.model.get_list_url}}">Tabla</a></li>
+                <li class="breadcrumb-item active">Detalle</li>
+            </ol>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    
+                    {% include "detail_snippet"|local_include_exists:request.resolver_match.app_name %}
+
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
+
+
+<!-- jscript de la página  -->
+{% block javascripts %}{% endblock javascripts %}

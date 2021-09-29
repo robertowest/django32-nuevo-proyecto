@@ -1,0 +1,56 @@
+{% extends 'layouts/base-fluid.html' %}
+
+{% load crispy_forms_tags %}
+{% load mis_tags %}
+
+
+{% block title %}
+    Formulario
+{% endblock %}
+
+
+<!-- estilos personalizados  -->
+{% block stylesheets %}
+    <!-- django.select2 -->
+    {{ form.media.css }}
+{% endblock stylesheets %}
+
+
+{% block content %}
+    <main>
+        <div class="container-fluid">
+            <h1 class="mt-4">Formulario</h1>
+
+            <!-- breadcrumb -->
+            {% if request.resolver_match.app_name|add:"/includes/breadcrumb.html"|template_exists %}
+                {% include request.resolver_match.app_name|add:"/includes/breadcrumb.html" %}
+            {% else %}
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                    <li class="breadcrumb-item active">Formulario - (id: {{object.pk}})</li>
+                </ol>            
+            {% endif %}
+
+            <div class="row justify-content-center">
+
+                <div class="card mb-3 col-md-6">
+                    <div class="card-body">
+                        <form action="{{form_action}}" method="POST">
+                            {% csrf_token %}
+                            {% crispy form %}
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+{% endblock content %}
+
+
+<!-- jscript de la página  -->
+{% block javascripts %}
+    <!-- django.select2 -->
+    {{ form.media.js }}
+{% endblock javascripts %}

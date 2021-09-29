@@ -1,0 +1,5 @@
+{% load i18n %}
+
+{% trans 'Para activar su perfil, siga este enlace:' %}
+
+{{ uri }}

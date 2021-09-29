@@ -1,0 +1,108 @@
+{% extends "layouts/base.html" %}
+
+{% load mis_tags %}
+{% load crispy_forms_tags %}
+{% load render_table from django_tables2 %}
+
+
+<!-- título de la página  -->
+{% block title %}
+    {{view.model|verbose_name}}
+{% endblock %} 
+
+<!-- estilos personalizados  -->
+{% block stylesheets %}
+{% endblock stylesheets %}
+
+
+{% block content %}
+    <main>
+        <div class="container-fluid">
+            <h1 class="mt-4">Listado de {{view.model|verbose_name_plural}}</h1>
+
+            <!-- breadcrumb -->
+            {% if request.resolver_match.app_name|add:"/includes/breadcrumb.html"|template_exists %}
+                {% include request.resolver_match.app_name|add:"/includes/breadcrumb.html" %}
+            {% else %}
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                    <li class="breadcrumb-item active">{{ object_list|verbose_name_plural }}</li>
+                </ol>
+            {% endif %}
+
+            {% if filter %}
+            <div class="card mb-4 collapse" id="collapseFiltro">
+                <div class="card-body">
+                    {% crispy filter.form filter.form.helper %}
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table mr-1"></i> Tabla: {{view.model|verbose_name}}
+                    {% if filter %}
+                        <small class="float-sm-right">
+                            <a class="btn btn-sm btn-primary" data-toggle="collapse" href="#collapseFiltro" role="button" aria-expanded="false" aria-controls="collapseFiltro">
+                                <i class="fas fa-filter mr-1"></i> Filtro
+                            </a>
+                        </small>
+                    {% endif %}
+                    {% if add_permission %}
+                        <small class="float-sm-right mr-2">
+                            <a class="btn btn-sm btn-success text-light" href="{{view.model.get_create_url}}">
+                                <i class="fas fa-plus"></i> Nuevo
+                            </a>
+                        </small>
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        {% render_table table %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
+
+
+{% block modal %}
+    {% include 'includes/modal_view.html' %}
+    {% include 'includes/modal_confirm_delete.html' %}
+{% endblock modal %}
+
+
+<!-- jscript de la página  -->
+{% block javascripts %}
+    <script type="text/javascript">
+        // Modal: vista de registro
+        $('#viewModal').on('show.bs.modal', function(e) {
+            var dataURL = $(e.relatedTarget).attr('href');
+
+            $.ajax({
+                url: dataURL,
+                success: function(response) {
+                    $('#viewModalBody').html(response);
+                },
+                error: function(xhr, status, error) {
+                    console.log(xhr.responseText);
+                }
+            })
+        });
+
+        // Modal: confirmación de eliminación
+        $('#confirmDeleteModal').on('show.bs.modal', function(e) {
+            // url del boton Ok
+            var dataURL = $(e.relatedTarget).attr('href');
+            var link = $(this).find('#confirmDeleteButtonModal')[0];
+            $('#confirmDeleteModalObject').html($(e.relatedTarget).data('object'));
+            link.href = dataURL;
+        });
+
+        $(document).on('click', '#confirmDeleteButtonModal', function() {
+            window.location = $("#confirmDeleteButtonModal")[0]['href'];
+            // console.log( JSON.stringify(e, null, 2) );
+        });
+    </script>
+{% endblock javascripts %}

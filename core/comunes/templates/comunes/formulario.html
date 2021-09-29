@@ -1,0 +1,59 @@
+{% extends "layouts/base.html" %}
+
+{% load static mis_tags %}
+{% load crispy_forms_tags %}
+
+
+<!-- título de la página  -->
+{% block title %}{{view.model|verbose_name}}{% endblock %} 
+
+
+<!-- estilos personalizados  -->
+{% block stylesheets %}
+    <!-- django.select2 -->
+    {# form.media.css #}
+    {# http://select2.github.io/select2-bootstrap-theme/4.0.3.html #}
+    <link href="{% static 'vendors/select2/css/select2.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendors/select2/css/select2-bootstrap.css' %}" rel="stylesheet" />
+{% endblock stylesheets %}
+
+
+{% block content %}
+    <main>
+        <div class="container-fluid">
+            <h1 class="mt-4">Formulario de {{view.model|verbose_name}}</h1>
+
+            <!-- breadcrumb -->
+            {% if request.resolver_match.app_name|add:"/includes/breadcrumb.html"|template_exists %}
+                {% include request.resolver_match.app_name|add:"/includes/breadcrumb.html" %}
+            {% else %}
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="{{view.model.get_list_url}}">Tabla</a></li>
+                    <li class="breadcrumb-item active">Formulario</li>
+                </ol>            
+            {% endif %}
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    {% crispy form %}
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
+
+
+<!-- jscript de la página  -->
+{% block javascripts %}
+    <!-- django.select2 -->
+    {# form.media.js #}
+    <script src="{% static 'vendors/select2/js/select2.min.js' %}"></script>
+    <script src="{% static 'vendors/select2/js/es.js' %}"></script>
+    <script src="{% static 'vendors/select2/js/django_select2.js' %}"></script>
+    <script type="text/javascript">
+        // definimos el theme para todos los select2
+        // $.fn.select2.defaults.set("theme", "bootstrap");
+        $.fn.select2.defaults.set("theme", "classic");
+    </script>
+{% endblock javascripts %}

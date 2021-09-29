@@ -1,0 +1,21 @@
+{% load mis_tags %}
+
+<div id="layoutSidenav_nav">
+    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+
+        <div class="sb-sidenav-menu">
+            <div class="nav">
+                <!-- sidebar contenido del menu -->
+                {% include "sidebar_menu"|local_include_exists:request.resolver_match.app_name %}
+            </div>
+        </div>
+        
+        <!-- sidebar footer -->
+        <div class="sb-sidenav-footer">
+            {% if request.user.is_authenticated %}
+                <div class="small">Usuario: {{ request.user.username }}</div>
+            {% endif %}
+        </div>
+                
+    </nav>
+</div>
