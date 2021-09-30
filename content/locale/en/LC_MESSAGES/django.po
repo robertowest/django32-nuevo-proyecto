@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 12:41-0300\n"
+"POT-Creation-Date: 2021-09-30 16:28-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,24 +18,307 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: apps/personas/apps.py:9
+msgid "Personas"
+msgstr ""
+
 #: config/environment/development/settings.py:15
 #: config/environment/production/settings.py:15
-msgid "English"
+msgid "Español"
 msgstr ""
 
 #: config/environment/development/settings.py:16
 #: config/environment/production/settings.py:16
-msgid "Spanish"
+msgid "Inglés"
 msgstr ""
 
-#: content/templates/config/lenguaje.html:8
+#: core/accounts/apps.py:9
+msgid "Accounts"
+msgstr ""
+
+#: core/accounts/forms.py:18
+msgid "Password"
+msgstr ""
+
+#: core/accounts/forms.py:24
+msgid "Remember me"
+msgstr ""
+
+#: core/accounts/forms.py:33
+msgid "You entered an invalid password."
+msgstr ""
+
+#: core/accounts/forms.py:39
+msgid "Username"
+msgstr ""
+
+#: core/accounts/forms.py:52
+msgid "You entered an invalid username."
+msgstr ""
+
+#: core/accounts/forms.py:55 core/accounts/forms.py:79
+#: core/accounts/forms.py:103 core/accounts/forms.py:190
+#: core/accounts/forms.py:208 core/accounts/forms.py:251
+msgid "This account is not active."
+msgstr ""
+
+#: core/accounts/forms.py:63 core/accounts/forms.py:115
+#: core/accounts/forms.py:154 core/accounts/forms.py:180
+#: core/accounts/forms.py:221 core/accounts/forms.py:241
+msgid "Email"
+msgstr ""
+
+#: core/accounts/forms.py:76 core/accounts/forms.py:161
+#: core/accounts/forms.py:187 core/accounts/forms.py:248
+msgid "You entered an invalid email address."
+msgstr ""
+
+#: core/accounts/forms.py:87 core/accounts/forms.py:128
+#: core/accounts/forms.py:198
+msgid "Email or Username"
+msgstr ""
+
+#: core/accounts/forms.py:100 core/accounts/forms.py:135
+#: core/accounts/forms.py:205
+msgid "You entered an invalid email address or username."
+msgstr ""
+
+#: core/accounts/forms.py:115
+msgid "Required. Enter an existing email address."
+msgstr ""
+
+#: core/accounts/forms.py:122
+msgid "You can not use this email address."
+msgstr ""
+
+#: core/accounts/forms.py:138 core/accounts/forms.py:164
+msgid "This account has already been activated."
+msgstr ""
+
+#: core/accounts/forms.py:142 core/accounts/forms.py:168
+msgid "Activation code not found."
+msgstr ""
+
+#: core/accounts/forms.py:146 core/accounts/forms.py:172
+msgid ""
+"Activation code has already been sent. You can request a new code in 24 "
+"hours."
+msgstr ""
+
+#: core/accounts/forms.py:216
+msgid "First name"
+msgstr ""
+
+#: core/accounts/forms.py:217
+msgid "Last name"
+msgstr ""
+
+#: core/accounts/forms.py:231
+msgid "Please enter another email."
+msgstr ""
+
+#: core/accounts/forms.py:235
+msgid "You can not use this mail."
+msgstr ""
+
+#: core/accounts/templates/accounts/emails/activate_profile.html:15
+#: core/accounts/templates/accounts/emails/activate_profile.txt:3
+msgid "To activate your profile, please follow this link:"
+msgstr ""
+
+#: core/accounts/templates/accounts/emails/change_email.html:15
+#: core/accounts/templates/accounts/emails/change_email.txt:3
+msgid "To change your current email address, please follow the link:"
+msgstr ""
+
+#: core/accounts/templates/accounts/emails/forgotten_username.html:15
+#: core/accounts/templates/accounts/emails/forgotten_username.txt:3
+msgid "Your username is:"
+msgstr ""
+
+#: core/accounts/templates/accounts/emails/restore_password_email.html:15
+#: core/accounts/templates/accounts/emails/restore_password_email.txt:3
+msgid ""
+"You received this email because you requested a password reset for your user "
+"account."
+msgstr ""
+
+#: core/accounts/templates/accounts/emails/restore_password_email.html:19
+#: core/accounts/templates/accounts/emails/restore_password_email.txt:5
+msgid "Please, go to the following page and choose a new password:"
+msgstr ""
+
+#: core/accounts/templates/accounts/log_in.html:12
+#: core/accounts/templates/accounts/log_in.html:19
+#: core/accounts/templates/accounts/remind_username.html:27
+#: core/accounts/templates/accounts/resend_activation_code.html:27
+#: core/accounts/templates/accounts/restore_password.html:27
+msgid "Log in"
+msgstr ""
+
+#: core/accounts/templates/accounts/log_in.html:27
+msgid "Forgot your password?"
+msgstr ""
+
+#: core/accounts/templates/accounts/log_in.html:30
+msgid "Forgot your username?"
+msgstr ""
+
+#: core/accounts/templates/accounts/log_in.html:33
+#: core/accounts/templates/accounts/resend_activation_code.html:12
+msgid "Resend an activation code"
+msgstr ""
+
+#: core/accounts/templates/accounts/log_out.html:11
+msgid "Logged out"
+msgstr ""
+
+#: core/accounts/templates/accounts/log_out.html:14
+msgid "Thanks for spending some quality time with the site today."
+msgstr ""
+
+#: core/accounts/templates/accounts/log_out.html:18
+msgid "Log in again"
+msgstr ""
+
+#: core/accounts/templates/accounts/profile/change_email.html:12
+#: core/accounts/utils.py:28
+msgid "Change email"
+msgstr ""
+
+#: core/accounts/templates/accounts/profile/change_email.html:19
+#: core/accounts/templates/accounts/profile/change_password.html:19
+#: core/accounts/templates/accounts/profile/change_profile.html:19
+#: core/accounts/templates/accounts/restore_password_confirm.html:25
+msgid "Change"
+msgstr ""
+
+#: core/accounts/templates/accounts/profile/change_password.html:12
+msgid "Change password"
+msgstr ""
+
+#: core/accounts/templates/accounts/profile/change_profile.html:12
+msgid "Change profile"
+msgstr ""
+
+#: core/accounts/templates/accounts/remind_username.html:12
+msgid "Remind a username"
+msgstr ""
+
+#: core/accounts/templates/accounts/remind_username.html:19
+#: core/accounts/templates/accounts/resend_activation_code.html:19
+#: core/accounts/templates/accounts/restore_password.html:19
+msgid "Next"
+msgstr ""
+
+#: core/accounts/templates/accounts/restore_password.html:12
+#: core/accounts/templates/accounts/restore_password_confirm.html:12
+#: core/accounts/templates/accounts/restore_password_done.html:11
+#: core/accounts/utils.py:37
+msgid "Restore password"
+msgstr ""
+
+#: core/accounts/templates/accounts/restore_password_confirm.html:17
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+
+#: core/accounts/templates/accounts/restore_password_confirm.html:32
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used. Please request a new password reset."
+msgstr ""
+
+#: core/accounts/templates/accounts/restore_password_done.html:14
+msgid ""
+"We've emailed you instructions for setting your password, if an account "
+"exists with the email you entered."
+msgstr ""
+
+#: core/accounts/templates/accounts/restore_password_done.html:15
+msgid "You should receive them shortly."
+msgstr ""
+
+#: core/accounts/templates/accounts/restore_password_done.html:19
+msgid ""
+"If you don't receive an email, please make sure you've entered the address "
+"you signed up with, and check your spam folder."
+msgstr ""
+
+#: core/accounts/templates/accounts/sign_up.html:12
+msgid "Create an account"
+msgstr ""
+
+#: core/accounts/templates/accounts/sign_up.html:19
+msgid "Create"
+msgstr ""
+
+#: core/accounts/utils.py:19
+msgid "Profile activation"
+msgstr ""
+
+#: core/accounts/utils.py:47
+msgid "Your username"
+msgstr ""
+
+#: core/accounts/views.py:124
+msgid ""
+"You are signed up. To activate the account, follow the link sent to the mail."
+msgstr ""
+
+#: core/accounts/views.py:131
+msgid "You are successfully signed up!"
+msgstr ""
+
+#: core/accounts/views.py:149
+msgid "You have successfully activated your account!"
+msgstr ""
+
+#: core/accounts/views.py:179
+msgid "A new activation code has been sent to your email address."
+msgstr ""
+
+#: core/accounts/views.py:224
+msgid "Profile data has been successfully updated."
+msgstr ""
+
+#: core/accounts/views.py:258
+msgid "To complete the change of email address, click on the link sent to it."
+msgstr ""
+
+#: core/accounts/views.py:263
+msgid "Email successfully changed."
+msgstr ""
+
+#: core/accounts/views.py:281
+msgid "You have successfully changed your email!"
+msgstr ""
+
+#: core/accounts/views.py:294
+msgid "Your username has been successfully sent to your email."
+msgstr ""
+
+#: core/accounts/views.py:309
+msgid "Your password was changed."
+msgstr ""
+
+#: core/accounts/views.py:321
+msgid "Your password has been set. You may go ahead and log in now."
+msgstr ""
+
+#: core/comunes/apps.py:9
+msgid "Comunes"
+msgstr ""
+
+#: content/templates/config/cambiar_lenguaje.html:8
 msgid "Cambiar lenguaje"
 msgstr ""
 
-#: content/templates/config/lenguaje.html:16
+#: content/templates/config/cambiar_lenguaje.html:16
 msgid "Seleccione lenguaje"
 msgstr ""
 
-#: content/templates/config/lenguaje.html:26
+#: content/templates/config/cambiar_lenguaje.html:26
 msgid "Cambiar"
 msgstr ""

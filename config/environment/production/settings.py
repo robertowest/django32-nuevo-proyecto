@@ -49,18 +49,18 @@ EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
 
-# -------------------------------------------------------------------
-# configuración para el uso de app 'usuarios'
-# -------------------------------------------------------------------
-ENABLE_USER_ACTIVATION = True
-DISABLE_USERNAME = False
-LOGIN_VIA_EMAIL = False
-LOGIN_VIA_EMAIL_OR_USERNAME = True
-LOGIN_REDIRECT_URL = 'home'
-LOGIN_URL = 'usuarios:log_in'
-USE_REMEMBER_ME = False
-RESTORE_PASSWORD_VIA_EMAIL_OR_USERNAME = True
-EMAIL_ACTIVATION_AFTER_CHANGING = True
+# # -------------------------------------------------------------------
+# # configuración para el uso de app 'usuarios'
+# # -------------------------------------------------------------------
+# ENABLE_USER_ACTIVATION = True
+# DISABLE_USERNAME = False
+# LOGIN_VIA_EMAIL = False
+# LOGIN_VIA_EMAIL_OR_USERNAME = True
+# LOGIN_REDIRECT_URL = 'home'
+# LOGIN_URL = 'usuarios:log_in'
+# USE_REMEMBER_ME = False
+# RESTORE_PASSWORD_VIA_EMAIL_OR_USERNAME = True
+# EMAIL_ACTIVATION_AFTER_CHANGING = True
 
 
 # -------------------------------------------------------------------

@@ -56,11 +56,11 @@ DEFAULT_FROM_EMAIL = 'test@example.com'
 # -------------------------------------------------------------------
 ENABLE_USER_ACTIVATION = True
 DISABLE_USERNAME = False
-LOGIN_VIA_EMAIL = True
-LOGIN_VIA_EMAIL_OR_USERNAME = False
+LOGIN_VIA_EMAIL = False
+LOGIN_VIA_EMAIL_OR_USERNAME = True
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'usuarios:log_in'
-USE_REMEMBER_ME = True
+USE_REMEMBER_ME = False
 RESTORE_PASSWORD_VIA_EMAIL_OR_USERNAME = False
 ENABLE_ACTIVATION_AFTER_EMAIL_CHANGE = True
 SIGN_UP_FIELDS = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
@@ -86,11 +86,21 @@ if DEBUG:
 
 
 # -------------------------------------------------------------------
+# aplicaciones de terceros
+# -------------------------------------------------------------------
+settings.INSTALLED_APPS += [
+    'bootstrap_modal_forms',
+    'widget_tweaks',
+    'bootstrap4',
+]
+
+
+# -------------------------------------------------------------------
 # aplicaciones del proyecto
 # -------------------------------------------------------------------
 settings.INSTALLED_APPS += [
+    'core.accounts',
     'core.comunes',
-    'core.usuarios',
 
     # 'apps.personas',
 ]

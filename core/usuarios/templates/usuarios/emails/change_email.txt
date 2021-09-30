@@ -1,5 +1,0 @@
-{% load i18n %}
-
-{% trans 'Para cambiar su dirección de correo electrónico actual, siga el enlace:' %}
-
-{{ uri }}

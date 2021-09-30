@@ -7,7 +7,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
 
-        <!-- menú de aplicaciones -->cha/?dni=&codigo=00001&nombre=
+        <!-- menú de aplicaciones -->
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link {% if '/home/' in request.path_info %} active {% endif %}" href="{% url 'home' %}">
@@ -40,25 +40,25 @@
                             </a>
                             <div class="dropdown-divider"></div>
                         {% endif %}
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{% url 'accounts:change_profile' %}">
                             <i class="fa fa-user"></i> Cambiar Perfil
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{% url 'accounts:change_email' %}">
                             <i class="fa fa-envelope"></i> Cambiar eMail
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{% url 'accounts:change_password' %}">
                             <i class="fa fa-unlock-alt"></i> Cambiar Contraseña
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{% url 'accounts:log_out' %}">
                             <i class="fa fa-door-open"></i> Salir
                         </a>
                     {% else %}
-                        <a class="dropdown-item" href="{% url 'usuarios:sign_up' %}">
-                            <i class="fas fa-sign-in-alt"></i> Crear cuenta</a>
+                        <a class="dropdown-item" href="{% url 'accounts:sign_up' %}" id="signup-btn">
+                            <i class="fas fa-user-plus"></i> Crear cuenta</a>
                         </a>
-                        <a class="dropdown-item" href="{% url 'usuarios:log_in' %}">
-                            <i class="fas fa-sign-in-alt"></i> Entrar</a>
+                        <a class="dropdown-item" href="{% url 'accounts:log_in' %}" id="login-btn">
+                            <i class="fas fa-door-closed"></i> Entrar</a>
                         </a>
                     {% endif %}
                 </div>

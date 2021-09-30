@@ -1,5 +1,0 @@
-{% load i18n %}
-
-{% trans 'Tu nombre de usuario es:' %}
-
-{{ username }}
