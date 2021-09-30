@@ -69,6 +69,13 @@ if DISABLE_USERNAME:
 
 
 # -------------------------------------------------------------------
+# tiempo de sesión
+# -------------------------------------------------------------------
+SESSION_COOKIE_AGE = 3600  # tiempo de vida de la sesión (10 minutos)
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # cerrar sesión al cerrar navegador
+
+
+# -------------------------------------------------------------------
 # configuración para debug
 # -------------------------------------------------------------------
 if DEBUG:

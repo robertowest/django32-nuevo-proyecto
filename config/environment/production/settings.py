@@ -64,6 +64,13 @@ EMAIL_ACTIVATION_AFTER_CHANGING = True
 
 
 # -------------------------------------------------------------------
+# tiempo de sesión
+# -------------------------------------------------------------------
+SESSION_COOKIE_AGE = 3600  # tiempo de vida de la sesión (10 minutos)
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # cerrar sesión al cerrar navegador
+
+
+# -------------------------------------------------------------------
 # aplicaciones del proyecto
 # -------------------------------------------------------------------
 settings.INSTALLED_APPS += [
