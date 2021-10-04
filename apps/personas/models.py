@@ -2,10 +2,12 @@ from datetime import date
 
 from django.db import models
 
+from core.audit.models import Auditable
 
-class Persona(models.Model):
+
+class Persona(Auditable):
     DOCUMENTO = (('DNI', 'D.N.I.'), ('PASS', 'Pasaporte'))
-    GENERO = (('M', 'Masculino'), ('F', 'Femenino'), ('N', 'No Binario'))
+    GENERO = (('M', 'Masculino'), ('F', 'Femenino'))
 
     nombre = models.CharField(max_length=40, db_index=True)
     apellido = models.CharField(max_length=40, db_index=True)

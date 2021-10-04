@@ -1,19 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'accounts/base.html' %}
 
+{% load bootstrap4 %}
 {% load i18n %}
 
 
-{% block modal %}{% endblock modal %}
-
-
-{% block content %}
+{% block local_content %}
 
     <h4>{% trans 'Logged out' %}</h4>
-
     <p>
         {% trans 'Thanks for spending some quality time with the site today.' %}
     </p>
-
     <p>
         <a href="{% url 'accounts:log_in' %}">{% trans 'Log in again' %}</a>
     </p>

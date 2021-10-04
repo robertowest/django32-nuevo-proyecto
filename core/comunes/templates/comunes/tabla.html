@@ -1,7 +1,5 @@
-{% extends "layouts/base.html" %}
-
-{% load mis_tags %}
-{% load crispy_forms_tags %}
+{% extends "base.html" %}
+{% load static mis_tags crispy_forms_tags %}
 {% load render_table from django_tables2 %}
 
 
@@ -10,9 +8,11 @@
     {{view.model|verbose_name}}
 {% endblock %} 
 
-<!-- estilos personalizados  -->
-{% block stylesheets %}
-{% endblock stylesheets %}
+
+<!-- JS en cabecera  -->
+{% block jsheader %}
+    <script src="{% static 'js/persona.js' %}"></script>
+{% endblock jsheader %}
 
 
 {% block content %}
@@ -50,9 +50,11 @@
                     {% endif %}
                     {% if add_permission %}
                         <small class="float-sm-right mr-2">
-                            <a class="btn btn-sm btn-success text-light" href="{{view.model.get_create_url}}">
-                                <i class="fas fa-plus"></i> Nuevo
-                            </a>
+
+<button id="persona-crear" class="btn btn-sm btn-success text-light" type="button">
+    <i class="fas fa-plus"></i> Nuevo
+</button>
+
                         </small>
                     {% endif %}
                 </div>
@@ -68,13 +70,13 @@
 
 
 {% block modal %}
-    {% include 'includes/modal_view.html' %}
-    {% include 'includes/modal_confirm_delete.html' %}
+    {% include 'includes/modal/form.html' %}
+    {% include 'includes/modal/confirm_delete.html' %}
 {% endblock modal %}
 
 
-<!-- jscript de la página  -->
-{% block javascripts %}
+<!-- jscript de la página -->
+{% block javascripts2 %}
     <script type="text/javascript">
         // Modal: vista de registro
         $('#viewModal').on('show.bs.modal', function(e) {
@@ -105,4 +107,5 @@
             // console.log( JSON.stringify(e, null, 2) );
         });
     </script>
-{% endblock javascripts %}
+
+{% endblock javascripts2 %}

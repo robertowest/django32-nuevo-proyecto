@@ -18,3 +18,7 @@ body {
         font-size: 3.5rem;
     }
 }
+
+.jumbotron, .jumbotron-fluid {
+    background-color: gainsboro;
+}

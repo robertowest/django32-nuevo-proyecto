@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block jsheader %}
+    {# cambiamos el atributo container por container-fluid #}
+    <script type="text/javascript">
+        window.onload = function() {
+            $('#main-content').removeClass('container');
+            $('#main-content').addClass('container-fluid');
+        }
+    </script>    
+{% endblock jsheader %}
+

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+{% load i18n %}
+
+
+{% block modal %}{% endblock modal %}
+
+
+{% block content %}
+    <div class="jumbotron col-6 mx-auto">
+        {% block local_content %}
+        {% endblock local_content %}
+
+    </div>
+
+{% endblock content %}

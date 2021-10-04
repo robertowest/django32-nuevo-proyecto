@@ -1,23 +1,18 @@
-{% extends 'base.html' %}
+{% extends 'accounts/base.html' %}
 
 {% load bootstrap4 %}
 {% load i18n %}
 
 
-{% block modal %}{% endblock modal %}
-
-
-{% block content %}
+{% block local_content %}
 
     <h4>{% trans 'Log in' %}</h4>
 
     <form method="post">
-
         {% csrf_token %}
         {% bootstrap_form form %}
 
         <button class="btn btn-primary">{% trans 'Log in' %}</button>
-
     </form>
 
     <hr>

@@ -1,13 +1,19 @@
 from django.urls import path
-
 from . import views
 
-app_name = 'persona'
+app_name = __package__.split('.')[1]    # en template: request.resolver_match.app_name
 
 urlpatterns = [
-    path('', views.PersonaList.as_view(), name='list'),
-    path('ver/<int:pk>', views.PersonaDetail.as_view(), name='view'),
-    path('nuevo', views.PersonaCreate.as_view(), name='new'),
-    path('editar/<int:pk>', views.PersonaUpdate.as_view(), name='edit'),
-    path('eliminar/<int:pk>', views.PersonaDelete.as_view(), name='delete'),
+    path('', views.PersonaTemplateView.as_view(), name='index'),
+    path('listado/', views.PersonaListView.as_view(), name='list'),
+    path('crear/', views.PersonaCreateView.as_view(), name='create'),
+    path('<int:pk>/', views.PersonaDetailView.as_view(), name='read'),
+    path('<int:pk>/modificar/', views.PersonaUpdateView.as_view(), name='update'),
+    path('<int:pk>/eliminar/', views.PersonaDeleteView.as_view(), name='delete'),
+
+    # # path('domicilio-modal/', views.DomicilioModal.as_view(), name='domicilio-modal'),
+    # # path('domicilio-filtro-modal/', views.DomicilioFiltroModal, name='domicilio-filtro-modal'),
+    
+    # # path('abrir-modal/', views.AbrirModal.as_view(), name='abrir_modal'),
+    # # path('test-form/', views.AbrirModal.as_view(), name='test-form'),
 ]

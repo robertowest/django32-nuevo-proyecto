@@ -92,7 +92,10 @@ settings.INSTALLED_APPS += [
     'bootstrap_modal_forms',
     'widget_tweaks',
     'bootstrap4',
+    'django_tables2',
+    'crispy_forms',
 ]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 # -------------------------------------------------------------------
@@ -102,5 +105,5 @@ settings.INSTALLED_APPS += [
     'core.accounts',
     'core.comunes',
 
-    # 'apps.personas',
+    'apps.personas',
 ]
