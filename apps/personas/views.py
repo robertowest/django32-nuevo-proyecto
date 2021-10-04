@@ -2,7 +2,6 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.urls import reverse_lazy
 from django.views import generic
 
-from bootstrap_modal_forms.generic import BSModalCreateView
 from django_tables2 import SingleTableView
 
 from core.audit.models import AuditableMixin
@@ -39,12 +38,12 @@ class PersonaListView(PermissionRequiredMixin, PagedFilteredTableView):
         return context
 
 
-class PersonaCreateView(AuditableMixin, PermissionRequiredMixin, BSModalCreateView):
+class PersonaCreateView(AuditableMixin, PermissionRequiredMixin, generic.CreateView):
     """CreateView formulario para la creación de un registro en la tabla"""
     model = Persona
     permission_required = '{domain}.add_{app}'.format(domain='personas', app='personas')
     form_class = PersonaForm
-    template_name = 'comunes/form_modal.html'
+    template_name = 'comunes/formulario.html'
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -86,5 +85,5 @@ class PersonaDeleteView(PermissionRequiredMixin, generic.DeleteView):
         redirect = self.request.GET.get('next')
         if redirect:
             return redirect
-        #reverse_lazy('personas:detail', args=(self.object.pk,))
-        return reverse_lazy('personas:list')
+        #reverse_lazy('persona:detail', args=(self.object.pk,))
+        return reverse_lazy('persona:list')

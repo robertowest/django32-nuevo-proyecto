@@ -9,12 +9,6 @@
 {% endblock %} 
 
 
-<!-- JS en cabecera  -->
-{% block jsheader %}
-    <script src="{% static 'js/persona.js' %}"></script>
-{% endblock jsheader %}
-
-
 {% block content %}
     <main>
         <div class="container-fluid">
@@ -50,11 +44,9 @@
                     {% endif %}
                     {% if add_permission %}
                         <small class="float-sm-right mr-2">
-
-<button id="persona-crear" class="btn btn-sm btn-success text-light" type="button">
-    <i class="fas fa-plus"></i> Nuevo
-</button>
-
+                            <a class="btn btn-sm btn-success text-light" href="{{view.model.get_create_url}}">
+                                <i class="fas fa-plus"></i> Nuevo
+                            </a>
                         </small>
                     {% endif %}
                 </div>
@@ -76,7 +68,8 @@
 
 
 <!-- jscript de la página -->
-{% block javascripts2 %}
+{% block javascripts %}
+
     <script type="text/javascript">
         // Modal: vista de registro
         $('#viewModal').on('show.bs.modal', function(e) {
@@ -108,4 +101,4 @@
         });
     </script>
 
-{% endblock javascripts2 %}
+{% endblock javascripts %}

@@ -51,12 +51,6 @@
 
         <!-- ventanas modales -->
         {% block modal %}
-        <!-- autenticación -->
-        <div class="modal fade" tabindex="-1" role="dialog" id="modal-auth">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content"></div>
-            </div>
-        </div>
         {% endblock modal %}
 
         <!-- Font Awesome -->
@@ -64,9 +58,6 @@
         <!-- jQuery / Popper (bootstrap.bundle) / Bootstrap -->
         <script src="{% static 'vendors/jquery/jquery.min.js' %}"></script>
         <script src="{% static 'vendors/bootstrap/bootstrap.min.js' %}"></script>
-        <!-- Bootstrap Modal Form -->
-        <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
-        <script src="{% static 'js/usuarios.js' %}"></script>
         
         <!-- JS en body -->
         {% block js %}
