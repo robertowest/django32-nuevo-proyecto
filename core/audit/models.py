@@ -55,7 +55,10 @@ class Auditable(models.Model):
         return reverse('%s:detail' % self._meta.app_label, args=(self.pk,))
 
     def get_update_url(self):
-        return reverse('%s:update' % self._meta.app_label, args=(self.pk,))
+        if self.pk:
+            return reverse('%s:update' % self._meta.app_label, args=(self.pk,))
+        else:
+            return None
 
     def get_delete_url(self):
         return reverse('%s:delete' % self._meta.app_label, args=(self.pk,))

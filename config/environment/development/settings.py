@@ -106,4 +106,5 @@ settings.INSTALLED_APPS += [
     'core.comunes',
 
     'apps.personas',
+    'books',
 ]
