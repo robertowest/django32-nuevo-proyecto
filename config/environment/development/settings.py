@@ -52,14 +52,14 @@ DEFAULT_FROM_EMAIL = 'test@example.com'
 
 
 # -------------------------------------------------------------------
-# configuración para el uso de app 'usuarios'
+# configuración para el uso de app 'accounts'
 # -------------------------------------------------------------------
 ENABLE_USER_ACTIVATION = True
 DISABLE_USERNAME = False
 LOGIN_VIA_EMAIL = False
 LOGIN_VIA_EMAIL_OR_USERNAME = True
 LOGIN_REDIRECT_URL = 'home'
-LOGIN_URL = 'usuarios:log_in'
+LOGIN_URL = 'accounts:log_in'
 USE_REMEMBER_ME = False
 RESTORE_PASSWORD_VIA_EMAIL_OR_USERNAME = False
 ENABLE_ACTIVATION_AFTER_EMAIL_CHANGE = True
@@ -89,7 +89,6 @@ if DEBUG:
 # aplicaciones de terceros
 # -------------------------------------------------------------------
 settings.INSTALLED_APPS += [
-    'bootstrap_modal_forms',
     'widget_tweaks',
     'bootstrap4',
     'django_tables2',
@@ -105,6 +104,6 @@ settings.INSTALLED_APPS += [
     'core.accounts',
     'core.comunes',
 
-    'apps.personas',
-    'books',
+    'apps.diccionario',
+    'apps.persona',
 ]

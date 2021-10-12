@@ -1,13 +1,13 @@
 $(document).ready(function() {
     $("#login-btn").modalForm({
         modalID: "#modal-auth",
-        formURL: "/usuarios/login/",
+        formURL: "/accounts/login/",
     });
 
     $("#signup-btn").modalForm({
         modalID: "#modal-auth",
-        formURL: "/usuarios/signup/",
-        // formURL: "{% url 'usuarios:signup' %}",
+        formURL: "/accounts/signup/",
+        // formURL: "{% url 'accounts:signup' %}",
     });
 
     // ocultar mensajes

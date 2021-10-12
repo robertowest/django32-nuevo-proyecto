@@ -1,0 +1,42 @@
+- model: persona.persona
+  pk: 1
+  fields:
+    active: true
+    created_on: 2021-07-31 12:45:29.018165+00:00
+    created_by: 1
+    modified_on: 2021-07-31 12:45:29.018725+00:00
+    modified_by: 1
+    nombre: Roberto
+    apellido: West
+    tipo_documento: 12
+    documento: '20203910'
+    fecha_nacimiento: 1968-03-30
+    genero: M
+- model: persona.persona
+  pk: 2
+  fields:
+    active: true
+    created_on: 2021-07-31 12:47:28.895728+00:00
+    created_by: 1
+    modified_on: 2021-07-31 12:47:28.895836+00:00
+    modified_by: 1
+    nombre: Maria Flavia
+    apellido: Maldonado
+    tipo_documento: 12
+    documento: '26684887'
+    fecha_nacimiento: 1978-07-01
+    genero: F
+- model: persona.persona
+  pk: 3
+  fields:
+    active: true
+    created_on: 2021-08-02 14:14:08.587844+00:00
+    created_by: 1
+    modified_on: 2021-08-02 20:28:30.220083+00:00
+    modified_by: 1
+    nombre: Ainara
+    apellido: West Maldonado
+    tipo_documento: 12
+    documento: '51398611'
+    fecha_nacimiento: 2004-05-23
+    genero: F

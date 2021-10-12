@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% load static mis_tags crispy_forms_tags %}
 {% load render_table from django_tables2 %}
 
@@ -6,7 +7,7 @@
 <!-- título de la página  -->
 {% block title %}
     {{view.model|verbose_name}}
-{% endblock %} 
+{% endblock title %} 
 
 
 {% block content %}
@@ -34,18 +35,30 @@
 
             <div class="card mb-4">
                 <div class="card-header">
-                    <i class="fas fa-table mr-1"></i> Tabla: {{view.model|verbose_name}}
+                    <i class="fa fa-table mr-1"></i> Tabla: {{view.model|verbose_name}}
                     {% if filter %}
                         <small class="float-sm-right">
-                            <a class="btn btn-sm btn-primary" data-toggle="collapse" href="#collapseFiltro" role="button" aria-expanded="false" aria-controls="collapseFiltro">
-                                <i class="fas fa-filter mr-1"></i> Filtro
-                            </a>
+                            <button type="submit" href="#collapseFiltro" 
+                                    class="btn btn-sm btn-primary btn-icon-split"
+                                    data-toggle="collapse" 
+                                    role="button" 
+                                    aria-expanded="false" 
+                                    aria-controls="collapseFiltro">
+                                <span class="icon text-white-50">
+                                    <i class="fa fa-filter"></i>
+                                </span>
+                                <span class="text"> Filtro</span>
+                            </button>
                         </small>
                     {% endif %}
                     {% if add_permission %}
-                        <small class="float-sm-right mr-2">
-                            <a class="btn btn-sm btn-success text-light" href="{{view.model.get_create_url}}">
-                                <i class="fas fa-plus"></i> Nuevo
+                        <small class="float-sm-right">
+                            <a href="{{view.model.get_create_url}}"
+                               class="btn btn-sm btn-success btn-icon-split mr-2">
+                                <span class="icon text-white-50">
+                                    <i class="fa fa-plus"></i>
+                                </span>
+                                <span class="text"> Nuevo</span>
                             </a>
                         </small>
                     {% endif %}
@@ -68,8 +81,7 @@
 
 
 <!-- jscript de la página -->
-{% block javascripts %}
-
+{% block js %}
     <script type="text/javascript">
         // Modal: vista de registro
         $('#viewModal').on('show.bs.modal', function(e) {
@@ -101,4 +113,4 @@
         });
     </script>
 
-{% endblock javascripts %}
+{% endblock js %}

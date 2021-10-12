@@ -97,7 +97,7 @@ def url_action_pk(url, pk):
 # @register.simple_tag()
 @register.filter
 def var_dump(var):
-    # forma de uso en html: {% var_dump VARIABLE %}
+    # forma de uso en html: {{ objeto|var_dump }}
     return vars(var)
 
 
@@ -142,5 +142,3 @@ def define(val=None):
         Usted está {{action}} un item !
     '''
     return val
-
-

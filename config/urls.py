@@ -36,8 +36,8 @@ urlpatterns += [
 
     path('accounts/', include('core.accounts.urls')),
     
-    path('personas/', include('apps.personas.urls')),
-    path('books/', include('books.urls')),
+    path('diccionario/', include('apps.diccionario.urls')),
+    path('persona/', include('apps.persona.urls')),
 ]
 
 

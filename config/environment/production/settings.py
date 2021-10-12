@@ -50,14 +50,14 @@ EMAIL_USE_SSL = True
 
 
 # # -------------------------------------------------------------------
-# # configuración para el uso de app 'usuarios'
+# # configuración para el uso de app 'accounts'
 # # -------------------------------------------------------------------
 # ENABLE_USER_ACTIVATION = True
 # DISABLE_USERNAME = False
 # LOGIN_VIA_EMAIL = False
 # LOGIN_VIA_EMAIL_OR_USERNAME = True
 # LOGIN_REDIRECT_URL = 'home'
-# LOGIN_URL = 'usuarios:log_in'
+# LOGIN_URL = 'accounts:log_in'
 # USE_REMEMBER_ME = False
 # RESTORE_PASSWORD_VIA_EMAIL_OR_USERNAME = True
 # EMAIL_ACTIVATION_AFTER_CHANGING = True
@@ -75,5 +75,5 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # cerrar sesión al cerrar navegador
 # -------------------------------------------------------------------
 settings.INSTALLED_APPS += [
     'core.comunes',
-    'core.usuarios',
+    'core.accounts',
 ]

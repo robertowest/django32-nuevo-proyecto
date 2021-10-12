@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-11">
+        <dl class="inline">
+            <dt>Campo</dt>
+            <dd>valor</dd>
+        </dl>
+        
+    </div>
+    <div class="col-1">
+        <div class="float-right">
+            <a class="btn btn-sm btn-success btn-icon-split" href="#" data-placement="left" data-toggle="tooltip" title="Nuevo contacto">
+                <span class="icon text-white-50"><i class="fas fa-plus"></i></span>
+                <!-- <span class="text">Texto</span> -->
+            </a>
+
+            <button id="btnAsociar" 
+                    class="btn btn-sm btn-secondary btn-icon-split" 
+                    data-url="{% url 'persona:domicilio-modal' %}"
+                    data-toggle="tooltip"
+                    data-placement="left" 
+                    title="Asociar un contacto existente">
+                <span class="icon text-white-50"><i class="fas fa-link"></i></span>
+            </button>
+            <!--
+            <a class="btn btn-sm btn-secondary btn-icon-split" href="#" data-placement="left" data-toggle="tooltip" title="Asociar un contacto existente">
+                <span class="icon text-white-50"><i class="fas fa-link"></i></span>
+            </a>
+            -->
+        </div>
+        
+    </div>
+</div>
+

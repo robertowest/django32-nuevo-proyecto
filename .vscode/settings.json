@@ -1,3 +1,12 @@
 {
     "python.pythonPath": "/home/roberto/.virtualenv/django32/bin/python",
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:django32-nuevo-proyecto}/db.sqlite3",
+            "name": "local",
+            "group": "SQLite"
+        }
+    ],
 }

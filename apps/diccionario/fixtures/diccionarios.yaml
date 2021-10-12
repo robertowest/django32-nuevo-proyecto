@@ -1,0 +1,93 @@
+# ./manage.py dumpdata --format yaml --indent 4 -o apps/diccionario/fixtures/diccionarios.yaml diccionario
+# ./manage.py loaddata diccionarios
+-   model: diccionario.diccionario
+    pk: 1
+    fields:
+        active: true
+        texto: Celular
+        codigo: null
+        tabla: comunicacion
+-   model: diccionario.diccionario
+    pk: 2
+    fields:
+        active: true
+        texto: Teléfono Casa
+        codigo: null
+        tabla: comunicacion
+-   model: diccionario.diccionario
+    pk: 3
+    fields:
+        active: true
+        texto: Teléfono Trabajo
+        codigo: null
+        tabla: comunicacion
+-   model: diccionario.diccionario
+    pk: 4
+    fields:
+        active: true
+        texto: Correo electrónico
+        codigo: null
+        tabla: comunicacion
+-   model: diccionario.diccionario
+    pk: 5
+    fields:
+        active: true
+        texto: Domicilio Particular
+        codigo: null
+        tabla: tipo_domicilio
+-   model: diccionario.diccionario
+    pk: 6
+    fields:
+        active: true
+        texto: Domicilio Laboral
+        codigo: null
+        tabla: tipo_domicilio
+-   model: diccionario.diccionario
+    pk: 7
+    fields:
+        active: true
+        texto: Avenida
+        codigo: null
+        tabla: tipo_calle
+-   model: diccionario.diccionario
+    pk: 8
+    fields:
+        active: true
+        texto: Barrio
+        codigo: null
+        tabla: tipo_calle
+-   model: diccionario.diccionario
+    pk: 9
+    fields:
+        active: true
+        texto: Calle
+        codigo: null
+        tabla: tipo_calle
+-   model: diccionario.diccionario
+    pk: 10
+    fields:
+        active: true
+        texto: Pasaje
+        codigo: null
+        tabla: tipo_calle
+-   model: diccionario.diccionario
+    pk: 11
+    fields:
+        active: true
+        texto: Ruta
+        codigo: null
+        tabla: tipo_calle
+-   model: diccionario.diccionario
+    pk: 12
+    fields:
+        active: true
+        texto: Doc. Nacional de Identidad
+        codigo: DNI
+        tabla: tipo_documento
+-   model: diccionario.diccionario
+    pk: 13
+    fields:
+        active: true
+        texto: Pasaporte
+        codigo: PAS
+        tabla: tipo_documento

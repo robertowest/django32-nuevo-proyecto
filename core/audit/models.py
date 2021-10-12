@@ -43,25 +43,46 @@ class Auditable(models.Model):
         return fields
 
     def get_absolute_url(self):
-        return reverse('%s:list' % self._meta.app_label)
+        try:
+            return reverse('%s:list' % self._meta.model_name)
+        except:
+            return reverse('%s:list' % self._meta.app_label)
 
     def get_list_url(self):
-        return reverse('%s:list' % self._meta.app_label)
-
-    def get_create_url(self):
-        return reverse('%s:create' % self._meta.app_label)
+        try:
+            return reverse('%s:list' % self._meta.model_name)
+        except:
+            return reverse('%s:list' % self._meta.app_label)
 
     def get_detail_url(self):
-        return reverse('%s:detail' % self._meta.app_label, args=(self.pk,))
+        try:
+            return reverse('%s:detail' % self._meta.model_name, args=(self.pk,))
+        except:
+            return reverse('%s:detail' % self._meta.app_label, args=(self.pk,))
+
+    def get_create_url(self):
+        try:
+            return reverse('%s:create' % self._meta.model_name)
+        except:
+            return reverse('%s:create' % self._meta.app_label)
+
+    def get_read_url(self):
+        try:
+            return reverse('%s:read' % self._meta.model_name, args=(self.pk,))
+        except:
+            return reverse('%s:read' % self._meta.app_label, args=(self.pk,))
 
     def get_update_url(self):
-        if self.pk:
+        try:
+            return reverse('%s:update' % self._meta.model_name, args=(self.pk,))
+        except:
             return reverse('%s:update' % self._meta.app_label, args=(self.pk,))
-        else:
-            return None
 
     def get_delete_url(self):
-        return reverse('%s:delete' % self._meta.app_label, args=(self.pk,))
+        try:
+            return reverse('%s:delete' % self._meta.model_name, args=(self.pk,))
+        except:
+            return reverse('%s:delete' % self._meta.app_label, args=(self.pk,))
 
     def get_verbose_name(self):
         # if isinstance(self, QuerySet):
@@ -79,7 +100,6 @@ class Auditable(models.Model):
 
     def hard_delete(self):
         super(Auditable, self).delete()
-
 
 
 class AuditableMixin(object,):
