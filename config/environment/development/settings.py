@@ -104,5 +104,5 @@ settings.INSTALLED_APPS += [
     'core.comunes',
 
     'apps.diccionarios',
-    # 'apps.personas',
+    'apps.test_app',
 ]
