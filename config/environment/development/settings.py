@@ -89,9 +89,9 @@ if DEBUG:
 # aplicaciones de terceros
 # -------------------------------------------------------------------
 settings.INSTALLED_APPS += [
-    'django_tables2',
+    'automatic_crud',
     'crispy_forms',
-    # 'automatic_crud',
+    'django_tables2',
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -103,6 +103,6 @@ settings.INSTALLED_APPS += [
     'core.accounts',
     'core.comunes',
 
-    # 'apps.diccionario',
-    # 'apps.persona',
+    'apps.diccionarios',
+    # 'apps.personas',
 ]
