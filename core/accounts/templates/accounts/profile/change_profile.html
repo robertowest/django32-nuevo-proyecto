@@ -1,7 +1,5 @@
 {% extends 'accounts/base.html' %}
-
-{% load bootstrap4 %}
-{% load i18n %}
+{% load i18n crispy_forms_tags %}
 
 
 {% block local_content %}
@@ -9,11 +7,8 @@
     <h4>{% trans 'Change profile' %}</h4>
 
     <form method="post">
-
         {% csrf_token %}
-        {% bootstrap_form form %}
-
-        <button class="btn btn-success">{% trans 'Change' %} &raquo;</button>
+        {% crispy form %}
 
     </form>
     

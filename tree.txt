@@ -1,0 +1,171 @@
+.
+├── apps
+│   ├── diccionario
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── filters.py
+│   │   ├── fixtures
+│   │   │   └── diccionarios.yaml
+│   │   ├── forms.py
+│   │   ├── __init__.py
+│   │   ├── models.py
+│   │   ├── tables.py
+│   │   ├── tests.py
+│   │   ├── urls.py
+│   │   └── views.py
+│   └── persona
+│       ├── admin.py
+│       ├── apps.py
+│       ├── filters.py
+│       ├── fixtures
+│       │   ├── ex_personas.yaml
+│       │   └── personas.yaml
+│       ├── forms.py
+│       ├── __init__.py
+│       ├── models.py
+│       ├── tables.py
+│       ├── templates
+│       │   └── persona
+│       │       ├── detalle.html
+│       │       ├── includes
+│       │       │   ├── detail_contacto.html
+│       │       │   ├── detail_domicilio.html
+│       │       │   ├── detail_domicilio_modal2.html
+│       │       │   ├── detail_domicilio_modal3.html
+│       │       │   ├── detail_domicilio_modal.html
+│       │       │   └── modal_find.html
+│       │       ├── test_form.html
+│       │       └── test_form_modal.html
+│       ├── tests.py
+│       ├── urls.py
+│       └── views.py
+├── config
+│   ├── asgi.py
+│   ├── environment
+│   │   ├── development
+│   │   │   ├── __init__.py
+│   │   │   └── settings.py
+│   │   └── production
+│   │       ├── __init__.py
+│   │       └── settings.py
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── settings.txt
+│   ├── urls.py
+│   └── wsgi.py
+├── content
+│   ├── locale
+│   │   ├── en
+│   │   │   └── LC_MESSAGES
+│   │   │       └── django.po
+│   │   ├── es
+│   │   │   └── LC_MESSAGES
+│   │   │       └── django.po
+│   │   └── us
+│   │       └── LC_MESSAGES
+│   │           └── django.po
+│   ├── static
+│   │   ├── css
+│   │   │   └── estilo.css
+│   │   ├── img
+│   │   │   └── favicons
+│   │   │       ├── apple-touch-icon.png
+│   │   │       ├── favicon-16x16.png
+│   │   │       ├── favicon-32x32.png
+│   │   │       └── favicon.ico
+│   │   ├── js
+│   │   │   ├── persona.js
+│   │   │   └── usuarios.js
+│   │   └── vendors
+│   │       ├── bootstrap
+│   │       │   ├── bootstrap.bundle.min.js
+│   │       │   ├── bootstrap.min.css
+│   │       │   └── bootstrap.min.js
+│   │       ├── fontawesome
+│   │       │   └── all.min.js
+│   │       ├── jquery
+│   │       │   └── jquery.min.js
+│   │       └── popper
+│   │           └── popper.min.js
+│   └── templates
+│       ├── base-fluid.html
+│       ├── base.html
+│       ├── config
+│       │   └── cambiar_lenguaje.html
+│       ├── home.html
+│       └── includes
+│           ├── detail_snippet.html
+│           ├── footer.html
+│           ├── modal
+│           │   ├── confirm_delete.html
+│           │   ├── confirm_yesno.html
+│           │   ├── find.html
+│           │   ├── form.html
+│           │   └── view.html
+│           ├── navbar.html
+│           ├── scripts.html
+│           ├── sidebar.html
+│           └── sidebar_menu.html
+├── core
+│   ├── accounts
+│   │   ├── apps.py
+│   │   ├── forms.py
+│   │   ├── __init__.py
+│   │   ├── models.py
+│   │   ├── README.md
+│   │   ├── templates
+│   │   │   └── accounts
+│   │   │       ├── base.html
+│   │   │       ├── emails
+│   │   │       │   ├── activate_profile.html
+│   │   │       │   ├── activate_profile.txt
+│   │   │       │   ├── change_email.html
+│   │   │       │   ├── change_email.txt
+│   │   │       │   ├── forgotten_username.html
+│   │   │       │   ├── forgotten_username.txt
+│   │   │       │   ├── restore_password_email.html
+│   │   │       │   └── restore_password_email.txt
+│   │   │       ├── log_in.html
+│   │   │       ├── log_out.html
+│   │   │       ├── profile
+│   │   │       │   ├── change_email.html
+│   │   │       │   ├── change_password.html
+│   │   │       │   └── change_profile.html
+│   │   │       ├── remind_username.html
+│   │   │       ├── resend_activation_code.html
+│   │   │       ├── restore_password_confirm.html
+│   │   │       ├── restore_password_done.html
+│   │   │       ├── restore_password.html
+│   │   │       └── sign_up.html
+│   │   ├── urls.py
+│   │   ├── utils.py
+│   │   └── views.py
+│   ├── audit
+│   │   ├── apps.py
+│   │   ├── __init__.py
+│   │   └── models.py
+│   └── comunes
+│       ├── admin.py
+│       ├── apps.py
+│       ├── __init__.py
+│       ├── models.py
+│       ├── templates
+│       │   └── comunes
+│       │       ├── detalle.html
+│       │       ├── detalle_modal.html
+│       │       ├── form_modal.html
+│       │       ├── formulario.html
+│       │       ├── form_unbound.html
+│       │       ├── nuevo.html
+│       │       ├── tabla.html
+│       │       └── tabla_modal.html
+│       ├── templatetags
+│       │   └── mis_tags.py
+│       ├── tests.py
+│       ├── utils.py
+│       └── views.py
+├── db.sqlite3
+├── manage.py
+├── pantalla.png
+├── README.md
+└── requirements.txt

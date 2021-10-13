@@ -4,10 +4,11 @@ django==3.2.7
 django-debug-toolbar==3.2.2
 psycopg2-binary==2.9.1
 # django-bootstrap-modal-forms==2.2.0
-django-widget-tweaks==1.4.8
-django-bootstrap4==3.0.1
-django-fm-0.2.5
+# django-widget-tweaks==1.4.8
+# django-bootstrap4==3.0.1
+django-fm==0.2.5
 django-tables2==2.4.0
 django-filter==21.1
 django-select2==7.7.3
 django-crispy-forms==1.13.0
+django-automatic-crud==1.2.0

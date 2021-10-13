@@ -46,7 +46,7 @@ settings.TEMPLATES[0]['DIRS'] = [CONTENT_DIR / 'templates']
 # configuración del correo electrónico
 # -------------------------------------------------------------------
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
-EMAIL_FILE_PATH = CONTENT_DIR, 'tmp/emails'
+EMAIL_FILE_PATH = '/tmp/emails'
 EMAIL_HOST_USER = 'test@example.com'
 DEFAULT_FROM_EMAIL = 'test@example.com'
 
@@ -89,10 +89,9 @@ if DEBUG:
 # aplicaciones de terceros
 # -------------------------------------------------------------------
 settings.INSTALLED_APPS += [
-    'widget_tweaks',
-    'bootstrap4',
     'django_tables2',
     'crispy_forms',
+    # 'automatic_crud',
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -104,6 +103,6 @@ settings.INSTALLED_APPS += [
     'core.accounts',
     'core.comunes',
 
-    'apps.diccionario',
-    'apps.persona',
+    # 'apps.diccionario',
+    # 'apps.persona',
 ]

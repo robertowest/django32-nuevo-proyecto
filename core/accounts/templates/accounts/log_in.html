@@ -1,7 +1,5 @@
 {% extends 'accounts/base.html' %}
-
-{% load bootstrap4 %}
-{% load i18n %}
+{% load i18n crispy_forms_tags %}
 
 
 {% block local_content %}
@@ -10,9 +8,8 @@
 
     <form method="post">
         {% csrf_token %}
-        {% bootstrap_form form %}
+        {% crispy form %}
 
-        <button class="btn btn-primary">{% trans 'Log in' %}</button>
     </form>
 
     <hr>
@@ -27,6 +24,7 @@
         <li>
             <a href="{% url 'accounts:resend_activation_code' %}">{% trans 'Resend an activation code' %} &raquo;</a>
         </li>
+
     </ul>
 
 {% endblock %}

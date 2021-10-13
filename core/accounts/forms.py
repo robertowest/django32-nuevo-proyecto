@@ -9,6 +9,9 @@ from django.utils import timezone
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
+
 
 class UserCacheMixin:
     user_cache = None
@@ -22,6 +25,10 @@ class SignIn(UserCacheMixin, forms.Form):
 
         if settings.USE_REMEMBER_ME:
             self.fields['remember_me'] = forms.BooleanField(label=_('Remember me'), required=False)
+
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', _('Log in')))
 
     def clean_password(self):
         password = self.cleaned_data['password']
@@ -37,6 +44,12 @@ class SignIn(UserCacheMixin, forms.Form):
 
 class SignInViaUsernameForm(SignIn):
     username = forms.CharField(label=_('Username'))
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', _('Log in')))
 
     @property
     def field_order(self):
@@ -62,6 +75,12 @@ class SignInViaUsernameForm(SignIn):
 class SignInViaEmailForm(SignIn):
     email = forms.EmailField(label=_('Email'))
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', _('Log in')))
+
     @property
     def field_order(self):
         if settings.USE_REMEMBER_ME:
@@ -85,6 +104,12 @@ class SignInViaEmailForm(SignIn):
 
 class SignInViaEmailOrUsernameForm(SignIn):
     email_or_username = forms.CharField(label=_('Email or Username'))
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', _('Log in')))
 
     @property
     def field_order(self):
@@ -114,6 +139,12 @@ class SignUpForm(UserCreationForm):
 
     email = forms.EmailField(label=_('Email'), help_text=_('Required. Enter an existing email address.'))
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', _('Create')))
+
     def clean_email(self):
         email = self.cleaned_data['email']
 
@@ -126,6 +157,12 @@ class SignUpForm(UserCreationForm):
 
 class ResendActivationCodeForm(UserCacheMixin, forms.Form):
     email_or_username = forms.CharField(label=_('Email or Username'))
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', _('Next')))
 
     def clean_email_or_username(self):
         email_or_username = self.cleaned_data['email_or_username']
@@ -153,6 +190,12 @@ class ResendActivationCodeForm(UserCacheMixin, forms.Form):
 class ResendActivationCodeViaEmailForm(UserCacheMixin, forms.Form):
     email = forms.EmailField(label=_('Email'))
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', _('Next')))
+
     def clean_email(self):
         email = self.cleaned_data['email']
 
@@ -179,6 +222,12 @@ class ResendActivationCodeViaEmailForm(UserCacheMixin, forms.Form):
 class RestorePasswordForm(UserCacheMixin, forms.Form):
     email = forms.EmailField(label=_('Email'))
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', _('Next')))
+
     def clean_email(self):
         email = self.cleaned_data['email']
 
@@ -196,6 +245,12 @@ class RestorePasswordForm(UserCacheMixin, forms.Form):
 
 class RestorePasswordViaEmailOrUsernameForm(UserCacheMixin, forms.Form):
     email_or_username = forms.CharField(label=_('Email or Username'))
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', _('Next')))
 
     def clean_email_or_username(self):
         email_or_username = self.cleaned_data['email_or_username']
@@ -216,6 +271,12 @@ class ChangeProfileForm(forms.Form):
     first_name = forms.CharField(label=_('First name'), max_length=30, required=False)
     last_name = forms.CharField(label=_('Last name'), max_length=150, required=False)
 
+    def __init__(self, user, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', _('Change')))
+
 
 class ChangeEmailForm(forms.Form):
     email = forms.EmailField(label=_('Email'))
@@ -223,6 +284,9 @@ class ChangeEmailForm(forms.Form):
     def __init__(self, user, *args, **kwargs):
         self.user = user
         super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', _('Change')))
 
     def clean_email(self):
         email = self.cleaned_data['email']
@@ -239,6 +303,12 @@ class ChangeEmailForm(forms.Form):
 
 class RemindUsernameForm(UserCacheMixin, forms.Form):
     email = forms.EmailField(label=_('Email'))
+
+    def __init__(self, user, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', _('Next')))
 
     def clean_email(self):
         email = self.cleaned_data['email']

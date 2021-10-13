@@ -32,7 +32,7 @@ from .models import Activation
 
 class GuestOnlyView(View):
     def dispatch(self, request, *args, **kwargs):
-        # Redirect to the index page if the user already authenticated
+        # Redirect to the LOGIN_REDIRECT_URL page if the user already authenticated
         if request.user.is_authenticated:
             return redirect(settings.LOGIN_REDIRECT_URL)
 
@@ -130,7 +130,7 @@ class SignUpView(GuestOnlyView, FormView):
 
             messages.success(request, _('You are successfully signed up!'))
 
-        return redirect('index')
+        return redirect(settings.LOGIN_REDIRECT_URL)
 
 
 class ActivateView(View):
@@ -208,6 +208,11 @@ class ChangeProfileView(LoginRequiredMixin, FormView):
     template_name = 'accounts/profile/change_profile.html'
     form_class = ChangeProfileForm
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+
     def get_initial(self):
         user = self.request.user
         initial = super().get_initial()
@@ -222,8 +227,8 @@ class ChangeProfileView(LoginRequiredMixin, FormView):
         user.save()
 
         messages.success(self.request, _('Profile data has been successfully updated.'))
-
-        return redirect('accounts:change_profile')
+        # return redirect('accounts:change_profile')
+        return redirect(settings.LOGIN_REDIRECT_URL)
 
 
 class ChangeEmailView(LoginRequiredMixin, FormView):
@@ -262,7 +267,8 @@ class ChangeEmailView(LoginRequiredMixin, FormView):
 
             messages.success(self.request, _('Email successfully changed.'))
 
-        return redirect('accounts:change_email')
+        # return redirect('accounts:change_email')
+        return redirect(settings.LOGIN_REDIRECT_URL)
 
 
 class ChangeEmailActivateView(View):
@@ -307,8 +313,8 @@ class ChangePasswordView(BasePasswordChangeView):
         login(self.request, user)
 
         messages.success(self.request, _('Your password was changed.'))
-
-        return redirect('accounts:change_password')
+        # return redirect('accounts:change_password')
+        return redirect('accounts:log_out')
 
 
 class RestorePasswordConfirmView(BasePasswordResetConfirmView):
