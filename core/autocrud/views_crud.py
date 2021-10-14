@@ -10,7 +10,7 @@ from core.autocrud.generics import BaseCrudMixin
 from core.autocrud.utils import get_object,get_form,build_template_name
 
 
-class BaseList(BaseCrudMixin,ListView):
+class BaseList(BaseCrudMixin, ListView):
 
     def dispatch(self, request, *args, **kwargs):
         # login required validation

@@ -1,36 +1,59 @@
 from datetime import datetime
+
 from django.conf import settings
 from django.db import models
 from django.db.models.query import QuerySet
 from django.urls import reverse
+from django.utils.translation import ugettext_lazy as _
 
 
 class Auditable(models.Model):
-    active = models.BooleanField('Activo', default=True, null=False, blank=False)
+    active = models.BooleanField(_('Activo'), default=True, null=False, blank=False)
 
-    created_on = models.DateTimeField('Creado', auto_now_add=True, editable=False, 
+    created_on = models.DateTimeField(_('Creado el'), auto_now_add=True, editable=False, 
                                       null=True, blank=True)
-    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, \
-                                   null=True, blank=True, editable=False, \
-                                   related_name='%(class)s_created_by', verbose_name='Creado por', \
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL,
+                                   null=True, blank=True, editable=False,
+                                   related_name='%(class)s_created_by', 
+                                   verbose_name=_('Creado por'),
                                    on_delete=models.CASCADE)
 
-    modified_on = models.DateTimeField('Modificado', auto_now=True, editable=False, 
+    modified_on = models.DateTimeField(_('Modificado el'), auto_now=True, editable=False, 
                                        null=True, blank=True)
-    modified_by = models.ForeignKey(settings.AUTH_USER_MODEL, \
-                                    null=True, blank=True, editable=False, \
-                                    related_name='%(class)s_modified_by', verbose_name='Modificado por', \
+    modified_by = models.ForeignKey(settings.AUTH_USER_MODEL,
+                                    null=True, blank=True, editable=False,
+                                    related_name='%(class)s_modified_by', 
+                                    verbose_name=_('Modificado por'),
                                     on_delete=models.CASCADE)
+
+    exclude_fields = ['created_on', 'created_by', 'modified_on', 'modified_by']
+
+    success_create_message = _('Registro creado correctamente')
+    success_update_message = _('Registro actualizado correctamente')
+    success_delete_message = _('Registro eliminado correctamente')
+
+    error_create_message = _('El registro no pudo ser creado')
+    error_update_message = _('El registro no pudo ser modificado')
+    not_found_message = _('No se encontraron registros con estos parámetros de búsqueda')
 
     class Meta:
         abstract = True
 
-    def get_fields(self):
-        """Devuelve una lista con los nombres de todos los campos"""
+    # TODO: no logro obtener los campos desde el objeto
+    # def get_fields(self):
+    #     # exclude = self.exclude_fields.append('active')
+    #     # include = [f.name for f in self._meta.get_fields() 
+    #     #             if f.name not in self.exclude_fields]
+    #     # return include.append('active')
+    #     return self.model._meta.fields
+
+    def get_data(self):
+        '''Devuelve una lista con los nombres de todos los campos'''
         fields = []
         for f in self._meta.fields:
             # comprobamos que el campo sea del tipo que queremos visualizar
-            if f.editable and f.name not in ('id2', 'active'):
+            # if f.editable and f.name not in self.exclude_fields:
+            if f.editable and f.name:
                 try:
                     value = getattr(self, f.name)
                     if value:
@@ -99,11 +122,12 @@ class Auditable(models.Model):
         self.save()
 
     def hard_delete(self):
-        super(Auditable, self).delete()
+        # super(Auditable, self).delete()
+        super(models.Model, self).delete()
 
 
 class AuditableMixin(object,):
-    """Se utilizará para grabar la información del usuario actual"""
+    '''Se utilizará para grabar la información del usuario actual'''
     def form_valid(self, form, ):
         if not form.instance.created_by:
             form.instance.created_by = self.request.user
@@ -116,7 +140,7 @@ class SQLView(models.Model):
         abstract = True
 
     def get_fields(self):
-        """Devuelve una lista con los nombres de todos los campos"""
+        '''Devuelve una lista con los nombres de todos los campos'''
         fields = []
         for f in self._meta.fields:
             try:

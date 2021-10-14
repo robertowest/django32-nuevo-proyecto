@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import path,reverse_lazy
-from django.contrib.auth.decorators import login_required
+from django.utils.translation import ugettext_lazy as _
 
 from core.autocrud.utils import get_model
 from core.autocrud.data_types import *
@@ -15,13 +15,13 @@ class BaseModel(models.Model):
     # TODO: Define fields here
     id = models.AutoField(primary_key = True)
     model_state = models.BooleanField(default = True)
-    date_created = models.DateTimeField('Fecha de Creación', 
+    date_created = models.DateTimeField(_('Fecha de Creación'), 
                                         auto_now=False, auto_now_add=True,
                                         null=True, blank=True)
-    date_modified = models.DateTimeField('Fecha de Modificación', 
+    date_modified = models.DateTimeField(_('Fecha de Modificación'), 
                                          auto_now=True, auto_now_add=False,
                                          null=True, blank=True)
-    date_deleted = models.DateTimeField('Fecha de Eliminación', 
+    date_deleted = models.DateTimeField(_('Fecha de Eliminación'), 
                                         auto_now=True, auto_now_add=False,
                                         null=True, blank=True)
 
@@ -43,13 +43,13 @@ class BaseModel(models.Model):
     
     exclude_fields = ['date_created','date_modified','date_deleted','model_state']
 
-    success_create_message = "registrado correctamente!"
-    success_update_message = "actualizado correctamente!"
-    success_delete_message = "eliminado correctamente!"
+    success_create_message = _("registrado correctamente!")
+    success_update_message = _("actualizado correctamente!")
+    success_delete_message = _("eliminado correctamente!")
 
-    error_create_message = "no se ha podido registrar!"
-    error_update_message = "no se ha podido actualizar!"
-    non_found_message = "No se ha encontrado un registro con estos datos!"
+    error_create_message = _("no se ha podido registrar!")
+    error_update_message = _("no se ha podido actualizar!")
+    non_found_message = _("No se ha encontrado un registro con estos datos!")
 
     create_template = None
     update_template = None

@@ -1,10 +1,10 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from core.autocrud.models import BaseModel
+from core.audit.models import Auditable
 
 
-class Diccionario(BaseModel):
+class Diccionario(Auditable):
     TABLA = (
         ('comunicacion', _('Comunicaciones')),
         ('tipo_domicilio', _('Tipo de Domicilio')),

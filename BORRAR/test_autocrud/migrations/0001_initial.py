@@ -36,7 +36,7 @@ class Migration(migrations.Migration):
                 ('date_modified', models.DateTimeField(auto_now=True, verbose_name='Fecha de Modificación')),
                 ('date_deleted', models.DateTimeField(auto_now=True, verbose_name='Fecha de Eliminación')),
                 ('name', models.CharField(max_length=150, verbose_name='Nombre de Producto')),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='test_app.category')),
+                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='test_autocrud.category')),
             ],
             options={
                 'verbose_name': 'Product',

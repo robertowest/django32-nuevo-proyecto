@@ -11,6 +11,13 @@ class BaseCrudMixin(AccessMixin):
     data = None
     permission_required = ()
 
+    def get_context_data(self, **kwargs):
+        context = super(BaseCrudMixin, self).get_context_data(**kwargs)
+        model = context['view'].model
+        context['app_label'] = model._meta.app_label
+        context['actual_model_name'] = model._meta.verbose_name
+        context['pluralized_model_name'] = model._meta.verbose_name_plural
+
     def get_permission_required(self):
         """
         Override this method to override the permission_required attribute.
@@ -74,7 +81,7 @@ class BaseCrudMixin(AccessMixin):
         return False,None
 
 
-class BaseCrud(BaseCrudMixin,View):
+class BaseCrud(BaseCrudMixin, View):
 
     def get_fields_for_model(self):
         """

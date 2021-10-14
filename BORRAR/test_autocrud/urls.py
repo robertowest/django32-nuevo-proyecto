@@ -1,6 +1,6 @@
 from django.urls import path
 
-from test_app.models import *
+from test_autocrud.models import *
 
 urlpatterns = [
     
