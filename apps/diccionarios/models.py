@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from automatic_crud.models import BaseModel
+from core.autocrud.models import BaseModel
 
 
 class Diccionario(BaseModel):

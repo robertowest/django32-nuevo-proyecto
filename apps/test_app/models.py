@@ -1,7 +1,6 @@
 from django.db import models
 
-from automatic_crud.models import BaseModel
-
+from core.autocrud.models import BaseModel
 
 
 class Category(BaseModel):
@@ -22,13 +21,15 @@ class Category(BaseModel):
 
     list_template = None
 
-    def get_create_form(self,form = None):
-        from test_app.forms import CategoryForm
+    def get_create_form(self, form=None):
+        # IMPORTANTE: la carga del form se debe hacer dentro de la función
+        from .forms import CategoryForm 
         self.create_form = CategoryForm
         return self.create_form        
 
-    def get_update_form(self,form = None):
-        from test_app.forms import CategoryForm
+    def get_update_form(self, form=None):
+        # IMPORTANTE: la carga del form se debe hacer dentro de la función
+        from .forms import CategoryForm
         self.update_form = CategoryForm
         return self.update_form
 
@@ -54,7 +55,6 @@ class Product(BaseModel):
 
     class Meta:
         """Meta definition for Product."""
-
         verbose_name = 'Product'
         verbose_name_plural = 'Products'
 
