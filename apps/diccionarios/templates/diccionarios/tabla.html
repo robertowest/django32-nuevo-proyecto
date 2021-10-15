@@ -1,0 +1,84 @@
+{% extends "base-fluid.html" %}
+{% load static mis_tags %}
+{% load render_table from django_tables2 %}
+
+
+<!-- título de la página  -->
+{% block title %}
+    {{view.model|verbose_name}}
+{% endblock title %} 
+
+
+{% block content %}
+
+    <h1 class="mt-4">
+        Listado de {{view.model|verbose_name_plural}}
+        {% if add_permission %}
+        <small class="float-sm-right">
+            <a href="{{view.model.get_create_url}}"
+                class="btn btn-sm btn-success btn-icon-split mr-2">
+                <span class="icon text-white-50">
+                    <i class="fa fa-plus"></i>
+                </span>
+                <span class="text"> Nuevo</span>
+            </a>
+        </small>
+        {% endif %}
+    </h1>
+
+    <!-- breadcrumb -->
+    {% if request.resolver_match.app_name|add:"/includes/breadcrumb.html"|template_exists %}
+        {% include request.resolver_match.app_name|add:"/includes/breadcrumb.html" %}
+    {% else %}
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+            <li class="breadcrumb-item active">{{ object_list|verbose_name_plural }}</li>
+        </ol>
+    {% endif %}
+
+    {% block tabla %}
+        {% render_table table %}
+    {% endblock tabla %}
+
+{% endblock content %}
+
+
+{% block modal %}
+    {% include 'includes/modal/confirm_delete.html' %}
+{% endblock modal %}
+
+
+<!-- jscript de la página -->
+{% block js %}
+    <script type="text/javascript">
+        // Modal: vista de registro
+        $('#viewModal').on('show.bs.modal', function(e) {
+            var dataURL = $(e.relatedTarget).attr('href');
+
+            $.ajax({
+                url: dataURL,
+                success: function(response) {
+                    $('#viewModalBody').html(response);
+                },
+                error: function(xhr, status, error) {
+                    console.log(xhr.responseText);
+                }
+            })
+        });
+
+        // Modal: confirmación de eliminación
+        $('#confirmDeleteModal').on('show.bs.modal', function(e) {
+            // url del boton Ok
+            var dataURL = $(e.relatedTarget).attr('href');
+            var link = $(this).find('#confirmDeleteButtonModal')[0];
+            $('#confirmDeleteModalObject').html($(e.relatedTarget).data('object'));
+            link.href = dataURL;
+        });
+
+        $(document).on('click', '#confirmDeleteButtonModal', function() {
+            window.location = $("#confirmDeleteButtonModal")[0]['href'];
+            // console.log( JSON.stringify(e, null, 2) );
+        });
+    </script>
+
+{% endblock js %}

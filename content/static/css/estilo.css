@@ -13,10 +13,12 @@ body {
     background: #fafafa;
 } 
 
+/* 
 @media (max-width: 576px) { body {font-size: 10px !important;} }
 @media (max-width: 768px) { body {font-size: 14px !important;} }
 @media (max-width: 992px) { body {font-size: 18px !important;} }
-@media (max-width:1200px) { body {font-size: 22px !important;} }
+@media (max-width:1200px) { body {font-size: 22px !important;} } 
+*/
 
 /* barra fija en la parte superior */
 body {
@@ -33,11 +35,13 @@ body {
     user-select: none;
 }
 
+/*
 @media (min-width: 768px) {
     .bd-placeholder-img-lg {
         font-size: 3.5rem;
     }
 }
+*/
 
 .jumbotron, .jumbotron-fluid {
     background-color: gainsboro;

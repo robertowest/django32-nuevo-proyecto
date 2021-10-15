@@ -36,6 +36,7 @@
         {% include 'navbar'|local_include_exists:request.resolver_match.app_name %}
         {% endblock %}
 
+        {% block main %}
         <main role="main" class="container" id="main-content">
             {% if messages %}
                 {% for message in messages %}
@@ -48,7 +49,8 @@
             {% block content %}
             {% endblock content %}
         </main>
-
+        {% endblock main %}
+        
         <!-- ventanas modales -->
         {% block modal %}
         {% endblock modal %}

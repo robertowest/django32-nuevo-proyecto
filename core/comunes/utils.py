@@ -54,7 +54,7 @@ def where_are_we_going(self, response):
         return response
 
 
-class PagedFilteredTableView(SingleTableView):
+class FilteredTableView(SingleTableView):
     filter_class = None
     formhelper_class = None
     context_filter_name = "filter"
@@ -67,6 +67,6 @@ class PagedFilteredTableView(SingleTableView):
         return self.filter.qs
 
     def get_context_data(self, **kwargs):
-        context = super(PagedFilteredTableView, self).get_context_data(**kwargs)
+        context = super(FilteredTableView, self).get_context_data(**kwargs)
         context[self.context_filter_name] = self.filter
         return context

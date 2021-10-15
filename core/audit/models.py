@@ -34,7 +34,7 @@ class Auditable(models.Model):
 
     error_create_message = _('El registro no pudo ser creado')
     error_update_message = _('El registro no pudo ser modificado')
-    not_found_message = _('No se encontraron registros con estos parámetros de búsqueda')
+    not_found_message = _('No se ha encontrado un registro con estos datos')
 
     class Meta:
         abstract = True

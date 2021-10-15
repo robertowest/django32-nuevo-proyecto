@@ -1,0 +1,18 @@
+{% extends 'diccionarios/diccionario_list.html' %}
+
+
+{% block content %}
+    <h1>Filtro {{filter}}</h1>
+    <form method="get">
+        {{ filter.form.as_p }}
+        <input type="submit" />
+    </form>
+    {% if filter %}
+        si hay filtro
+    {% endif %}
+
+    {% block table %}
+        {{ block.super }}
+    {% endblock table %}
+
+{% endblock content %}

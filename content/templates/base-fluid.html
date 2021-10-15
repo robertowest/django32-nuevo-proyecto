@@ -1,13 +1,20 @@
 {% extends 'base.html' %}
 
+{% block main %}
 
-{% block jsheader %}
-    {# cambiamos el atributo container por container-fluid #}
-    <script type="text/javascript">
-        window.onload = function() {
-            $('#main-content').removeClass('container');
-            $('#main-content').addClass('container-fluid');
-        }
-    </script>    
-{% endblock jsheader %}
+<main role="main" class="container-fluid" id="main-content">
 
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% block content %}
+    {% endblock content %}
+
+</main>
+
+{% endblock main %}
