@@ -85,3 +85,8 @@ body {
 .btn-group-lg>.btn-icon-split.btn .text {
     padding: 0.5rem 1rem;
 }
+
+
+.jumbotron {
+    padding: 20px;
+}

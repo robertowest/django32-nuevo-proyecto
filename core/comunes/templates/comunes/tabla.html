@@ -1,6 +1,5 @@
-{% extends "base.html" %}
-
-{% load static mis_tags crispy_forms_tags %}
+{% extends "base-fluid.html" %}
+{% load static mis_tags %}
 {% load render_table from django_tables2 %}
 
 
@@ -11,71 +10,41 @@
 
 
 {% block content %}
-    <main>
-        <div class="container-fluid">
-            <h1 class="mt-4">Listado de {{view.model|verbose_name_plural}}</h1>
 
-            <!-- breadcrumb -->
-            {% if request.resolver_match.app_name|add:"/includes/breadcrumb.html"|template_exists %}
-                {% include request.resolver_match.app_name|add:"/includes/breadcrumb.html" %}
-            {% else %}
-                <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-                    <li class="breadcrumb-item active">{{ object_list|verbose_name_plural }}</li>
-                </ol>
-            {% endif %}
+    <h1 class="mt-4">
+        Listado de {{view.model|verbose_name_plural}}
+        {% if add_permission %}
+        <small class="float-sm-right">
+            <a href="{{view.model.get_create_url}}"
+                class="btn btn-sm btn-success btn-icon-split mr-2">
+                <span class="icon text-white-50">
+                    <i class="fa fa-plus"></i>
+                </span>
+                <span class="text"> Nuevo</span>
+            </a>
+        </small>
+        {% endif %}
+    </h1>
 
-            {% if filter %}
-            <div class="card mb-4 collapse" id="collapseFiltro">
-                <div class="card-body">
-                    {% crispy filter.form filter.form.helper %}
-                </div>
-            </div>
-            {% endif %}
+    <!-- breadcrumb -->
+    {% if request.resolver_match.app_name|add:"/includes/breadcrumb.html"|template_exists %}
+        {% include request.resolver_match.app_name|add:"/includes/breadcrumb.html" %}
+    {% else %}
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+            <li class="breadcrumb-item active">{{ object_list|verbose_name_plural }}</li>
+        </ol>
+    {% endif %}
 
-            <div class="card mb-4">
-                <div class="card-header">
-                    <i class="fa fa-table mr-1"></i> Tabla: {{view.model|verbose_name}}
-                    {% if filter %}
-                        <small class="float-sm-right">
-                            <button type="submit" href="#collapseFiltro" 
-                                    class="btn btn-sm btn-primary btn-icon-split"
-                                    data-toggle="collapse" 
-                                    role="button" 
-                                    aria-expanded="false" 
-                                    aria-controls="collapseFiltro">
-                                <span class="icon text-white-50">
-                                    <i class="fa fa-filter"></i>
-                                </span>
-                                <span class="text"> Filtro</span>
-                            </button>
-                        </small>
-                    {% endif %}
-                    {% if add_permission %}
-                        <small class="float-sm-right">
-                            <a href="{{view.model.get_create_url}}"
-                               class="btn btn-sm btn-success btn-icon-split mr-2">
-                                <span class="icon text-white-50">
-                                    <i class="fa fa-plus"></i>
-                                </span>
-                                <span class="text"> Nuevo</span>
-                            </a>
-                        </small>
-                    {% endif %}
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        {% render_table table %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+    {% block tabla %}
+        {% render_table table %}
+    {% endblock tabla %}
+
 {% endblock content %}
 
 
 {% block modal %}
-    {% include 'includes/modal/form.html' %}
+    {% include 'includes/modal/view.html' %}
     {% include 'includes/modal/confirm_delete.html' %}
 {% endblock modal %}
 

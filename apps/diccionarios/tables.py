@@ -4,9 +4,13 @@ from .models import Diccionario
 
 
 class DiccionarioTable(tables.Table):
+    # view sin ventana modal
+    # <a href="{{record.get_read_url}}" class="text-info" data-toggle="tooltip" data-original-title="Ver"><i class="fa fa-eye">&nbsp;</i></a>
+    # view con ventana modal
+    # <a href="{{record.get_read_url}}" class="text-info" title="Ver" data-toggle="modal" data-target="#viewModal" id="viewButton{{record.id}}"><i class="fa fa-eye">&nbsp;</i></a>
     ACTIONS = '''
     {% if perms.diccionario.view_diccionario %}
-    <a href="{{record.get_read_url}}" class="text-info" data-toggle="tooltip" data-original-title="Ver"><i class="fa fa-eye">&nbsp;</i></a>
+    <a href="{{record.get_read_url}}" class="text-info" title="Ver" data-toggle="modal" data-target="#viewModal" id="viewButton{{record.id}}"><i class="fa fa-eye">&nbsp;</i></a>
     {% endif %}
 
     {% if perms.diccionario.change_diccionario %} 

@@ -15,13 +15,4 @@
     }
 </style>
 
-
-<div class="card mb-4">
-    <div class="card-body">
-        
-        {% include "detail_snippet"|local_include_exists:request.resolver_match.app_name %}
-
-    </div>
-</div>
-
-
+{% include "detail_snippet"|local_include_exists:request.resolver_match.app_name %}

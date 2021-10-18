@@ -6,9 +6,9 @@
         </dl>
     {% endfor %}
 
-{% elif object.get_fields %}
+{% elif object.get_data %}
     <dl class="inline">
-        {% for fld in object.get_fields %}
+        {% for fld in object.get_data %}
             <dt>{{fld.name|capfirst}}</dt>
             <dd>{{fld.value|escape|urlize}}</dd>
         {% endfor %}
