@@ -3,7 +3,7 @@ from datetime import datetime
 from django.conf import settings
 from django.db import models
 from django.db.models.query import QuerySet
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -34,6 +34,8 @@ class Auditable(models.Model):
 
     error_create_message = _('El registro no pudo ser creado')
     error_update_message = _('El registro no pudo ser modificado')
+    error_delete_message = _('El registro no pudo ser eliminado')
+
     not_found_message = _('No se ha encontrado un registro con estos datos')
 
     class Meta:
@@ -72,10 +74,7 @@ class Auditable(models.Model):
             return reverse('%s:list' % self._meta.app_label)
 
     def get_list_url(self):
-        try:
-            return reverse('%s:list' % self._meta.model_name)
-        except:
-            return reverse('%s:list' % self._meta.app_label)
+        self.get_absolute_url()
 
     def get_detail_url(self):
         try:
@@ -121,9 +120,8 @@ class Auditable(models.Model):
         self.active = False
         self.save()
 
-    def hard_delete(self):
-        # super(Auditable, self).delete()
-        super(models.Model, self).delete()
+    def hard_delete(self, *args, **kwargs):
+        super(Auditable, self).delete(*args,**kwargs)
 
 
 class AuditableMixin(object,):

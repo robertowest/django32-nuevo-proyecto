@@ -38,16 +38,10 @@
 
         {% block main %}
         <main role="main" class="container" id="main-content">
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="alert alert-success" role="alert">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endif %}
-
+            {# los mensajes se mostrarán en tabla.html #}
             {% block content %}
             {% endblock content %}
+
         </main>
         {% endblock main %}
         

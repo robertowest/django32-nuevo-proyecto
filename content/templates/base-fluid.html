@@ -3,15 +3,6 @@
 {% block main %}
 
 <main role="main" class="container-fluid" id="main-content">
-
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-success" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endif %}
-
     {% block content %}
     {% endblock content %}
 

@@ -5,6 +5,13 @@ CONTENT_DIR = settings.BASE_DIR / 'content'
 DEBUG = True
 ALLOWED_HOSTS = ['*']
 
+# 10 DEBUG   - Mensajes relacionados con el desarrollo que serán ignorados (o eliminados)en un despliegue de producción
+# 20 INFO    - Mensajes informativos para el usuario
+# 25 SUCCESS - Una acción fue exitosa, por ejemplo, "Su perfil se actualizó correctamente"
+# 30 WARNING - No se produjo un fallo pero puede ser inminente
+# 40 ERROR   - Una acción no tuvo éxito o se produjo alguna otra falla
+MESSAGE_LEVEL = 10  # DEBUG
+
 
 # -------------------------------------------------------------------
 # internalización

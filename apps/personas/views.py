@@ -13,13 +13,13 @@ from django_tables2 import SingleTableView
 from core.audit.models import AuditableMixin
 from core.comunes.utils import FilteredTableView, where_are_we_going
 
-from .models import Diccionario
-from .tables import DiccionarioTable
-from .filters import DiccionarioFilter, DiccionarioFilterForm
-from .forms import DiccionarioForm
+from .models import Persona
+from .tables import PersonaTable
+from .filters import PersonaFilter, PersonaFilterForm
+from .forms import PersonaForm
 
 
-PERMISSION = '{label}.view_{model}'.format(label='diccionarios', model='diccionario')
+PERMISSION = '{label}.view_{model}'.format(label='personas', model='persona')
 
 
 class MyTemplateView(TemplateView):
@@ -35,8 +35,8 @@ class MyTemplateView(TemplateView):
 class MyListView(PermissionRequiredMixin, SingleTableView):
     """ListView se utiliza para la presentación de una tabla de contenido"""
     permission_required = PERMISSION
-    model = Diccionario
-    table_class = DiccionarioTable              # SingleTableView
+    model = Persona
+    table_class = PersonaTable              # SingleTableView
     template_name = 'comunes/tabla.html'
 
     def get_context_data(self, **kwargs):
@@ -47,16 +47,16 @@ class MyListView(PermissionRequiredMixin, SingleTableView):
 
 class MyFilterView(MyListView, FilteredTableView):
     """FilterView se utiliza para la presentación de una tabla con filtro"""
-    filter_class = DiccionarioFilter            # FilteredTableView (filterset_class)
-    formhelper_class = DiccionarioFilterForm    # FilteredTableView
+    filter_class = PersonaFilter            # FilteredTableView (filterset_class)
+    formhelper_class = PersonaFilterForm    # FilteredTableView
     template_name = 'comunes/tabla_filtro.html'
 
 
 class MyCreateView(AuditableMixin, PermissionRequiredMixin, CreateView):
     """CreateView formulario para la creación de un registro en la tabla"""
     permission_required = PERMISSION.replace("view_", "add_")
-    model = Diccionario
-    form_class = DiccionarioForm
+    model = Persona
+    form_class = PersonaForm
     template_name = 'comunes/formulario.html'
 
     def get_context_data(self, **kwargs):
@@ -72,7 +72,7 @@ class MyCreateView(AuditableMixin, PermissionRequiredMixin, CreateView):
 class MyReadView(PermissionRequiredMixin, ReadView):
     """DetailView se utiliza para la presentación de un registro de la tabla"""
     permission_required = PERMISSION
-    model = Diccionario
+    model = Persona
     # template_name = '{app}/detalle.html'.format(app=model._meta.verbose_name.lower())
     template_name = 'comunes/detalle_modal.html'
 
@@ -80,8 +80,8 @@ class MyReadView(PermissionRequiredMixin, ReadView):
 class MyUpdateView(AuditableMixin, PermissionRequiredMixin, UpdateView):
     """UpdateView formulario para la modificación de un registro en la tabla"""
     permission_required = PERMISSION.replace("view_", "change_")
-    model = Diccionario
-    form_class = DiccionarioForm
+    model = Persona
+    form_class = PersonaForm
     template_name = 'comunes/formulario.html'
 
     def get_context_data(self, **kwargs):
@@ -97,7 +97,7 @@ class MyUpdateView(AuditableMixin, PermissionRequiredMixin, UpdateView):
 class MyDeleteView(PermissionRequiredMixin, DeleteView):
     """DeleteView confirmación de eliminación de un registro en la tabla"""
     permission_required = PERMISSION.replace('view_', 'del_')
-    model = Diccionario
+    model = Persona
 
     def get(self, request, *args, **kwargs):
         return self.post(request, *args, **kwargs)

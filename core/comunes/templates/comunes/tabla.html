@@ -10,7 +10,6 @@
 
 
 {% block content %}
-
     <h1 class="mt-4">
         Listado de {{view.model|verbose_name_plural}}
         {% if add_permission %}
@@ -34,6 +33,16 @@
             <li class="breadcrumb-item"><a href="/">Inicio</a></li>
             <li class="breadcrumb-item active">{{ object_list|verbose_name_plural }}</li>
         </ol>
+    {% endif %}
+
+    <!-- mensajes -->
+    {% if messages %}
+        {% for message in messages %}
+        <p class="alert alert-dismissable {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ message }}
+        </p>
+        {% endfor %}
     {% endif %}
 
     {% block tabla %}

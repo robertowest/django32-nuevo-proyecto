@@ -1,0 +1,54 @@
+from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
+
+
+class MyUpdateView(AuditableMixin, PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
+    """UpdateView formulario para la modificación de un registro en la tabla"""
+    permission_required = PERMISSION.replace("view_", "change_")
+    model = Diccionario
+    form_class = DiccionarioForm
+    template_name = 'comunes/formulario.html'
+    success_message = "registro modficado!"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['columns'] = "col-4"
+        return context
+
+    def get_success_message(self, cleaned_data):
+        # return super().get_success_message(cleaned_data)
+        return self.success_message
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        return where_are_we_going(self, response)
+
+
+class MyDeleteView(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
+    """DeleteView confirmación de eliminación de un registro en la tabla"""
+    permission_required = PERMISSION.replace('view_', 'del_')
+    model = Diccionario
+
+    # def delete(self, request, *args, **kwargs):
+    #     object = self.get_object()
+    #     try:
+    #         try:
+    #             if object.chidlren.count() > 0:
+    #                 messages.add_message(request, messages.ERROR, 
+    #                     self.model.error_delete_message + " porque tiene hijos"
+    #                 )
+    #         except:
+    #             object.delete()
+    #             messages.success(self.request, self.model.success_delete_message)
+    #     except:
+    #         messages.success(self.request, self.model.error_delete_message)
+    #     return reverse_lazy('{}:list'.format(__package__.split('.')[1]))
+
+    def get(self, request, *args, **kwargs):
+        return self.post(request, *args, **kwargs)
+
+    def get_success_url(self):
+        redirect = self.request.GET.get('next')
+        if redirect:
+            return redirect
+        return reverse_lazy('{}:list'.format(self.model._meta.verbose_name.lower()))
