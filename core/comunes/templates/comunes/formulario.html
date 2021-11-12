@@ -9,17 +9,21 @@
 
 
 <!-- estilos personalizados  -->
-{% block stylesheets %}
+{% block css %}
+
     <!-- django.select2 -->
-    {# form.media.css #}
+    {% comment %} 
+    {{ form.media.css }}
     {# http://select2.github.io/select2-bootstrap-theme/4.0.3.html #}
-    <link href="{% static 'vendors/select2/css/select2.css' %}" rel="stylesheet" />
+    {% endcomment %}
+    <link href="{% static 'vendors/select2/css/select2.min.css' %}" rel="stylesheet" />
     <link href="{% static 'vendors/select2/css/select2-bootstrap.css' %}" rel="stylesheet" />
-{% endblock stylesheets %}
+
+{% endblock css %}
 
 
 {% block content %}
-    <main>
+
         <div class="container-fluid">
             <h1 class="mt-4">Formulario de {{view.model|verbose_name}}</h1>
 
@@ -38,20 +42,24 @@
                 {% crispy form %}
             </div>
         </div>
-    </main>
+
 {% endblock content %}
 
 
 <!-- jscript de la página  -->
-{% block javascripts %}
+{% block js %}
+
     <!-- django.select2 -->
-    {# form.media.js #}
+    {% comment %} 
+    {{ form.media.js }}
+    {% endcomment %}
     <script src="{% static 'vendors/select2/js/select2.min.js' %}"></script>
     <script src="{% static 'vendors/select2/js/es.js' %}"></script>
-    <script src="{% static 'vendors/select2/js/django_select2.js' %}"></script>
+    <script src="{% static 'vendors/select2/js/django_select2.js' %}"></script> 
     <script type="text/javascript">
         // definimos el theme para todos los select2
-        // $.fn.select2.defaults.set("theme", "bootstrap");
-        $.fn.select2.defaults.set("theme", "classic");
+        // $.fn.select2.defaults.set("theme", "classic");
+        $.fn.select2.defaults.set("theme", "bootstrap");
     </script>
-{% endblock javascripts %}
+
+{% endblock js %}
