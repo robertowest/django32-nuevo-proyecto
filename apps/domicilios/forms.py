@@ -1,42 +1,42 @@
 from django import forms
 
 from crispy_forms import helper, layout
-from django_select2 import forms as s2forms
+from django_select2.forms import ModelSelect2Widget
 
 from .models import Provincia, Departamento, Localidad, Domicilio
 
 
 class DomicilioForm(forms.ModelForm):
     provincia = forms.ModelChoiceField(
-        required=False,
-        queryset=Provincia.objects.filter(active=True).filter(pais_id=1),
-        widget=s2forms.ModelSelect2Widget(
-            model=Provincia,
-            search_fields=['nombre__icontains'],
+        queryset = Provincia.objects.filter(active=True).filter(pais_id=1),
+        required = False,
+        widget = ModelSelect2Widget(
+            model = Provincia,
+            search_fields = ['nombre__icontains'],
             attrs = {'data-minimum-input-length': 0},
         )
     )
     departamento = forms.ModelChoiceField(
-        queryset=Departamento.objects.filter(active=True),
-        label='Dpto.', required=False,
-        widget=s2forms.ModelSelect2Widget(
-            model=Departamento,
-            search_fields=['nombre__icontains'],
-            dependent_fields={'provincia': 'provincia'},
+        queryset = Departamento.objects.filter(active=True),
+        required=False, label = 'Dpto.',
+        widget = ModelSelect2Widget(
+            model = Departamento,
+            search_fields = ['nombre__icontains'],
+            dependent_fields = {'provincia': 'provincia'},
             attrs = {'data-minimum-input-length': 0},
-            max_results=50,
-            select2_options={ 'width': '100%' },
+            max_results = 50,
+            select2_options ={ 'width': '100%' },
         ),
     )
     localidad = forms.ModelChoiceField(
-        required=False,
-        queryset=Localidad.objects.filter(active=True),
-        widget=s2forms.ModelSelect2Widget(
-            model=Localidad,
-            search_fields=['nombre__icontains'],
-            dependent_fields={'departamento': 'departamento'},
+        queryset = Localidad.objects.filter(active=True),
+        required = False,
+        widget = ModelSelect2Widget(
+            model = Localidad,
+            search_fields = ['nombre__icontains'],
+            dependent_fields = {'departamento': 'departamento'},
             attrs = {'data-minimum-input-length': 0},
-            max_results=50,
+            max_results = 50,
         )
     )
 

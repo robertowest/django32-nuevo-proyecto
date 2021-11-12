@@ -56,15 +56,23 @@ class DepartamentoAdmin(admin.ModelAdmin):
     search_fields = ['nombre']
     ordering = ['nombre']
     fields = ['provincia', 'nombre', 'active']
-    inlines = [LocalidadInLine]
+    # inlines = [LocalidadInLine]
+
+@admin.register(Localidad)
+class LocalidadAdmin(admin.ModelAdmin):
+    list_display = ['id', 'nombre', 'active']
+    list_display_links = ['nombre']
+    list_filter = ['departamento__nombre']
+    search_fields = ['nombre']
+    ordering = ['nombre']
 
 
 @admin.register(Domicilio)
 class DomicilioAdmin(admin.ModelAdmin):
     raw_id_fields = ['provincia', 'departamento', 'localidad']
+    autocomplete_fields = ['provincia', 'departamento', 'localidad']
     # list_display = [f.name for f in Domicilio._meta.get_fields() if f.name not in Domicilio.exclude_fields]
     list_display = ['id', 'domicilio_corto', 'active']
     list_display_links = ['domicilio_corto']
-    # list_filter = ['localidad']
     search_fields = ['nombre']
     ordering = ['nombre']
