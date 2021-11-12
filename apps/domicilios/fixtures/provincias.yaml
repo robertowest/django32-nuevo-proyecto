@@ -1,0 +1,5 @@
+- model: domicilios.provincia
+  pk: 1
+  fields:
+    nombre: Tucumán
+    pais_id: 1

@@ -13,13 +13,13 @@ class Persona(Auditable):
 
     nombre = models.CharField(max_length=40, db_index=True)
     apellido = models.CharField(max_length=40, db_index=True)
-    tipo_documento = models.ForeignKey(Diccionario, on_delete=models.CASCADE,
-                                       null=True, blank=True, default=12, 
-                                       verbose_name=_('Tipo Doc'),
-                                       limit_choices_to={'tabla': 'tipo_documento', 'active': True})
+    # tipo_documento = models.ForeignKey(Diccionario, on_delete=models.CASCADE,
+    #                                    null=True, blank=True, default=12, 
+    #                                    verbose_name=_('Tipo Doc'),
+    #                                    limit_choices_to={'tabla': 'tipo_documento', 'active': True})
     documento = models.CharField('Número', max_length=12, null=True, blank=True, unique=True)
     fecha_nacimiento = models.DateField(_('Fec. Nac.'), blank=True, null=True)
-    genero = models.CharField(_('Sexo'), max_length=1, choices=GENERO, default='F')
+    genero = models.CharField(_('Sexo'), max_length=1, choices=GENERO, default='M')
 
     class Meta:
         db_table = 'personas'

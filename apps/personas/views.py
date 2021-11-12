@@ -49,7 +49,7 @@ class MyFilterView(MyListView, FilteredTableView):
     """FilterView se utiliza para la presentación de una tabla con filtro"""
     filter_class = PersonaFilter            # FilteredTableView (filterset_class)
     formhelper_class = PersonaFilterForm    # FilteredTableView
-    template_name = 'comunes/tabla_filtro.html'
+    template_name = 'comunes/tabla.html'
 
 
 class MyCreateView(AuditableMixin, PermissionRequiredMixin, CreateView):
@@ -61,7 +61,7 @@ class MyCreateView(AuditableMixin, PermissionRequiredMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['columns'] = "col-4"
+        context['columns'] = "col-8"
         return context
 
     def form_valid(self, form):
@@ -86,7 +86,7 @@ class MyUpdateView(AuditableMixin, PermissionRequiredMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['columns'] = "col-4"
+        context['columns'] = "col-8"
         return context
 
     def form_valid(self, form):

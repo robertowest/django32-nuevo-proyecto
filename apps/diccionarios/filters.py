@@ -11,6 +11,11 @@ class DiccionarioFilter(FilterSet):
         model = Diccionario
         fields = ['tabla', 'texto', 'active']
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if self.data == {}:
+            self.queryset = self.queryset.none()
+
 
 class DiccionarioFilterForm(helper.FormHelper):
     def __init__(self, *args, **kwargs):

@@ -1,0 +1,4 @@
+- model: domicilios.pais
+  pk: 1
+  fields:
+    nombre: Argentina

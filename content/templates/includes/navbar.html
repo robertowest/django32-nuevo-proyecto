@@ -6,23 +6,36 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-
-        <!-- menú de aplicaciones -->
+        {# menú de aplicaciones #}
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link {% if '/home/' in request.path_info %} active {% endif %}" href="{% url 'home' %}">
+            <li class="nav-item {% if '/home/' in request.path_info %} active {% endif %}">
+                <a class="nav-link" href="{% url 'home' %}">
                     <i class="fas fa-home"></i> Inicio
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link {% if '/habilitado/' in request.path_info %} active {% endif %}" href="#">Habilitado</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-bars"></i> Tablas
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    {% if perms.diccionarios.view_diccionarios %}
+                    <a class="dropdown-item {% if '/diccionarios/' in request.path_info %} active {% endif %}" href="{% url 'diccionarios:list' %}">
+                        <i class="fa fa-spell-check"></i> Diccionarios
+                    </a>
+                    {% endif %}
+
+                    {% if perms.personas.view_persona %}
+                    <a class="dropdown-item {% if '/personas/' in request.path_info %} active {% endif %}" href="{% url 'personas:list' %}">
+                        <i class="fa fa-users"></i> Personas
+                    </a>
+                    {% endif %}
+                </div>
+
             </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Deshabilitado</a>
-            </li>
+
         </ul>
 
-        <!-- menú de usuario -->
+        {# menú de usuario #}
         <ul class="navbar-nav ml-auto ml-md-0">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -62,7 +75,9 @@
                         </a>
                     {% endif %}
                 </div>
+
             </li>
+
         </ul>
 
     </div>

@@ -1,0 +1,68 @@
+# ./manage.py dumpdata --format yaml --indent 4 -o apps/diccionarios/fixtures/diccionarios.yaml diccionarios
+# ./manage.py loaddata diccionarios
+-   model: diccionarios.diccionario
+    pk: 1
+    fields:
+        texto: Celular
+        tabla: comunicacion
+        texto_corto: null
+-   model: diccionarios.diccionario
+    pk: 2
+    fields:
+        texto: Teléfono Casa
+        tabla: comunicacion
+        texto_corto: null
+-   model: diccionarios.diccionario
+    pk: 3
+    fields:
+        texto: Teléfono Trabajo
+        tabla: comunicacion
+        texto_corto: null
+-   model: diccionarios.diccionario
+    pk: 4
+    fields:
+        texto: Correo electrónico
+        tabla: comunicacion
+        texto_corto: null
+-   model: diccionarios.diccionario
+    pk: 5
+    fields:
+        texto: Domicilio Particular
+        tabla: tipo_domicilio
+        texto_corto: null
+-   model: diccionarios.diccionario
+    pk: 6
+    fields:
+        texto: Domicilio Laboral
+        tabla: tipo_domicilio
+        texto_corto: null
+-   model: diccionarios.diccionario
+    pk: 7
+    fields:
+        texto: Avenida
+        tabla: tipo_calle
+        texto_corto: null
+-   model: diccionarios.diccionario
+    pk: 8
+    fields:
+        texto: Barrio
+        tabla: tipo_calle
+        texto_corto: null
+-   model: diccionarios.diccionario
+    pk: 9
+    fields:
+        texto: Calle
+        tabla: tipo_calle
+        texto_corto: null
+-   model: diccionarios.diccionario
+    pk: 10
+    fields:
+        texto: Pasaje
+        tabla: tipo_calle
+        texto_corto: null
+-   model: diccionarios.diccionario
+    pk: 11
+    fields:
+        texto: Ruta
+        tabla: tipo_calle
+        texto_corto: null

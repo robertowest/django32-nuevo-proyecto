@@ -14,17 +14,15 @@ class ComunicacionSelectWidget(s2forms.ModelSelect2Widget):
 class PersonaForm(forms.ModelForm):
     class Meta:
         model = Persona
-        fields = ['apellido', 'nombre', 
-                  'tipo_documento', 'documento', 
-                  'fecha_nacimiento', 'genero', 'active']
+        fields = ['nombre', 'apellido', 'documento', 'fecha_nacimiento', 'genero', 'active']
         widgets = {
-            'comunicacion': ComunicacionSelectWidget(
-                attrs = {
-                    'data-minimum-input-length': 4,
-                    'data-placeholder': '-- seleccione una opción --',
-                },
-                max_results = 10
-            ),
+            # 'comunicacion': ComunicacionSelectWidget(
+            #     attrs = {
+            #         'data-minimum-input-length': 4,
+            #         'data-placeholder': '-- seleccione una opción --',
+            #     },
+            #     max_results = 10
+            # ),
             'fecha_nacimiento': forms.TextInput(
                 attrs={'class':'form-control', 'placeholder': 'dd/mm/aaaa', 'type':'date'}
             ),

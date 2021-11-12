@@ -1,0 +1,560 @@
+- model: domicilios.localidad
+  pk: 1
+  fields:
+    nombre: Burruyacú
+    departamento_id: 1
+- model: domicilios.localidad
+  pk: 2
+  fields:
+    nombre: El Chañar
+    departamento_id: 1
+- model: domicilios.localidad
+  pk: 3
+  fields:
+    nombre: El Naranjo y El Sunchal
+    departamento_id: 1
+- model: domicilios.localidad
+  pk: 4
+  fields:
+    nombre: El Puestito
+    departamento_id: 1
+- model: domicilios.localidad
+  pk: 5
+  fields:
+    nombre: El Timbó
+    departamento_id: 1
+- model: domicilios.localidad
+  pk: 6
+  fields:
+    nombre: Gobernador Garmendia
+    departamento_id: 1
+- model: domicilios.localidad
+  pk: 7
+  fields:
+    nombre: Gobernador Piedrabuena
+    departamento_id: 1
+- model: domicilios.localidad
+  pk: 8
+  fields:
+    nombre: La Ramada y La Cruz
+    departamento_id: 1
+- model: domicilios.localidad
+  pk: 9
+  fields:
+    nombre: Padre Monti
+    departamento_id: 1
+- model: domicilios.localidad
+  pk: 10
+  fields:
+    nombre: Siete de Abril
+    departamento_id: 1
+- model: domicilios.localidad
+  pk: 11
+  fields:
+    nombre: Villa Benjamín Araoz
+    departamento_id: 1
+- model: domicilios.localidad
+  pk: 12
+  fields:
+    nombre: San Miguel de Tucumán
+    departamento_id: 2
+- model: domicilios.localidad
+  pk: 13
+  fields:
+    nombre: Concepción
+    departamento_id: 3
+- model: domicilios.localidad
+  pk: 14
+  fields:
+    nombre: Alpachiri y El Molino
+    departamento_id: 3
+- model: domicilios.localidad
+  pk: 15
+  fields:
+    nombre: Alto Verde y Los Gucheas
+    departamento_id: 3
+- model: domicilios.localidad
+  pk: 16
+  fields:
+    nombre: Arcadia
+    departamento_id: 3
+- model: domicilios.localidad
+  pk: 17
+  fields:
+    nombre: Gastona y Belicha
+    departamento_id: 3
+- model: domicilios.localidad
+  pk: 18
+  fields:
+    nombre: La Trinidad
+    departamento_id: 3
+- model: domicilios.localidad
+  pk: 19
+  fields:
+    nombre: Medinas
+    departamento_id: 3
+- model: domicilios.localidad
+  pk: 20
+  fields:
+    nombre: Banda del Río Salí
+    departamento_id: 4
+- model: domicilios.localidad
+  pk: 21
+  fields:
+    nombre: Alderetes
+    departamento_id: 4
+- model: domicilios.localidad
+  pk: 22
+  fields:
+    nombre: Colombres
+    departamento_id: 4
+- model: domicilios.localidad
+  pk: 23
+  fields:
+    nombre: Delfín Gallo (Ex Ingenio Esperanza, Ex ingenio Luján, El Paraíso)
+    departamento_id: 4
+- model: domicilios.localidad
+  pk: 24
+  fields:
+    nombre: El Bracho y El Cevilar
+    departamento_id: 4
+- model: domicilios.localidad
+  pk: 25
+  fields:
+    nombre: El Naranjito
+    departamento_id: 4
+- model: domicilios.localidad
+  pk: 26
+  fields:
+    nombre: La Florida y Luisiana
+    departamento_id: 4
+- model: domicilios.localidad
+  pk: 27
+  fields:
+    nombre: Las Cejas
+    departamento_id: 4
+- model: domicilios.localidad
+  pk: 28
+  fields:
+    nombre: Los Bulacio y Los Villagra
+    departamento_id: 4
+- model: domicilios.localidad
+  pk: 29
+  fields:
+    nombre: Los Pereyra
+    departamento_id: 4
+- model: domicilios.localidad
+  pk: 30
+  fields:
+    nombre: Los Pérez
+    departamento_id: 4
+- model: domicilios.localidad
+  pk: 31
+  fields:
+    nombre: Los Ralos
+    departamento_id: 4
+- model: domicilios.localidad
+  pk: 32
+  fields:
+    nombre: Ranchillos y San Miguel
+    departamento_id: 4
+- model: domicilios.localidad
+  pk: 33
+  fields:
+    nombre: San Andrés
+    departamento_id: 4
+- model: domicilios.localidad
+  pk: 34
+  fields:
+    nombre: Famaillá
+    departamento_id: 5
+- model: domicilios.localidad
+  pk: 35
+  fields:
+    nombre: Graneros
+    departamento_id: 6
+- model: domicilios.localidad
+  pk: 36
+  fields:
+    nombre: Lamadrid
+    departamento_id: 6
+- model: domicilios.localidad
+  pk: 37
+  fields:
+    nombre: Taco Ralo
+    departamento_id: 6
+- model: domicilios.localidad
+  pk: 38
+  fields:
+    nombre: Juan Bautista Alberdi
+    departamento_id: 7
+- model: domicilios.localidad
+  pk: 39
+  fields:
+    nombre: Escaba
+    departamento_id: 7
+- model: domicilios.localidad
+  pk: 40
+  fields:
+    nombre: Villa Belgrano
+    departamento_id: 7
+- model: domicilios.localidad
+  pk: 41
+  fields:
+    nombre: La Cocha
+    departamento_id: 8
+- model: domicilios.localidad
+  pk: 42
+  fields:
+    nombre: El Sacrificio
+    departamento_id: 8
+- model: domicilios.localidad
+  pk: 43
+  fields:
+    nombre: Huasa Pampa
+    departamento_id: 8
+- model: domicilios.localidad
+  pk: 44
+  fields:
+    nombre: Rumi Punco
+    departamento_id: 8
+- model: domicilios.localidad
+  pk: 45
+  fields:
+    nombre: San Ignacio
+    departamento_id: 8
+- model: domicilios.localidad
+  pk: 46
+  fields:
+    nombre: San José de la Cocha
+    departamento_id: 8
+- model: domicilios.localidad
+  pk: 47
+  fields:
+    nombre: Yánima
+    departamento_id: 8
+- model: domicilios.localidad
+  pk: 48
+  fields:
+    nombre: Bella Vista
+    departamento_id: 9
+- model: domicilios.localidad
+  pk: 49
+  fields:
+    nombre: Agua Dulce y La Soledad
+    departamento_id: 9
+- model: domicilios.localidad
+  pk: 50
+  fields:
+    nombre: El Mojón
+    departamento_id: 9
+- model: domicilios.localidad
+  pk: 51
+  fields:
+    nombre: Esquina y Mancopa
+    departamento_id: 9
+- model: domicilios.localidad
+  pk: 52
+  fields:
+    nombre: Estación Araox y Tacanas
+    departamento_id: 9
+- model: domicilios.localidad
+  pk: 53
+  fields:
+    nombre: Las Talas
+    departamento_id: 9
+- model: domicilios.localidad
+  pk: 54
+  fields:
+    nombre: Los Gómez
+    departamento_id: 9
+- model: domicilios.localidad
+  pk: 55
+  fields:
+    nombre: Los Puestos
+    departamento_id: 9
+- model: domicilios.localidad
+  pk: 56
+  fields:
+    nombre: Manuel García Fernández
+    departamento_id: 9
+- model: domicilios.localidad
+  pk: 57
+  fields:
+    nombre: Quilmes y Los Sueldos
+    departamento_id: 9
+- model: domicilios.localidad
+  pk: 58
+  fields:
+    nombre: Río Colorado
+    departamento_id: 9
+- model: domicilios.localidad
+  pk: 59
+  fields:
+    nombre: Santa Rosa de Leales
+    departamento_id: 9
+- model: domicilios.localidad
+  pk: 60
+  fields:
+    nombre: Villa de Leales
+    departamento_id: 9
+- model: domicilios.localidad
+  pk: 61
+  fields:
+    nombre: Lules
+    departamento_id: 10
+- model: domicilios.localidad
+  pk: 62
+  fields:
+    nombre: El Manantial
+    departamento_id: 10
+- model: domicilios.localidad
+  pk: 63
+  fields:
+    nombre: San Felipe y Santa Bárbara
+    departamento_id: 10
+- model: domicilios.localidad
+  pk: 64
+  fields:
+    nombre: San Pablo y Villa Nougués
+    departamento_id: 10
+- model: domicilios.localidad
+  pk: 65
+  fields:
+    nombre: Monteros
+    departamento_id: 11
+- model: domicilios.localidad
+  pk: 66
+  fields:
+    nombre: Acheral
+    departamento_id: 11
+- model: domicilios.localidad
+  pk: 67
+  fields:
+    nombre: Amberes
+    departamento_id: 11
+- model: domicilios.localidad
+  pk: 68
+  fields:
+    nombre: Capitán Cáceres
+    departamento_id: 11
+- model: domicilios.localidad
+  pk: 69
+  fields:
+    nombre: El Cercado
+    departamento_id: 11
+- model: domicilios.localidad
+  pk: 70
+  fields:
+    nombre: Los Sosas
+    departamento_id: 11
+- model: domicilios.localidad
+  pk: 71
+  fields:
+    nombre: Río Seco
+    departamento_id: 11
+- model: domicilios.localidad
+  pk: 72
+  fields:
+    nombre: Santa Lucía
+    departamento_id: 11
+- model: domicilios.localidad
+  pk: 73
+  fields:
+    nombre: Santa Rosa y Los Rojo
+    departamento_id: 11
+- model: domicilios.localidad
+  pk: 74
+  fields:
+    nombre: Sargento Moya
+    departamento_id: 11
+- model: domicilios.localidad
+  pk: 75
+  fields:
+    nombre: Soldado Maldonado
+    departamento_id: 11
+- model: domicilios.localidad
+  pk: 76
+  fields:
+    nombre: Teniente Berdina
+    departamento_id: 11
+- model: domicilios.localidad
+  pk: 77
+  fields:
+    nombre: Villa Quinteros
+    departamento_id: 11
+- model: domicilios.localidad
+  pk: 78
+  fields:
+    nombre: Aguilares
+    departamento_id: 12
+- model: domicilios.localidad
+  pk: 79
+  fields:
+    nombre: El Polear
+    departamento_id: 12
+- model: domicilios.localidad
+  pk: 80
+  fields:
+    nombre: Los Sarmientos y La Tipa
+    departamento_id: 12
+- model: domicilios.localidad
+  pk: 81
+  fields:
+    nombre: Monte Bello
+    departamento_id: 12
+- model: domicilios.localidad
+  pk: 82
+  fields:
+    nombre: Santa Ana
+    departamento_id: 12
+- model: domicilios.localidad
+  pk: 83
+  fields:
+    nombre: Simoca
+    departamento_id: 13
+- model: domicilios.localidad
+  pk: 84
+  fields:
+    nombre: Atahona
+    departamento_id: 13
+- model: domicilios.localidad
+  pk: 85
+  fields:
+    nombre: Buena Vista
+    departamento_id: 13
+- model: domicilios.localidad
+  pk: 86
+  fields:
+    nombre: Ciudacita
+    departamento_id: 13
+- model: domicilios.localidad
+  pk: 87
+  fields:
+    nombre: Manuela Pedraza
+    departamento_id: 13
+- model: domicilios.localidad
+  pk: 88
+  fields:
+    nombre: Monteagudo
+    departamento_id: 13
+- model: domicilios.localidad
+  pk: 89
+  fields:
+    nombre: Pampa Mayo
+    departamento_id: 13
+- model: domicilios.localidad
+  pk: 90
+  fields:
+    nombre: Río Chico y Nueva Trinidad
+    departamento_id: 13
+- model: domicilios.localidad
+  pk: 91
+  fields:
+    nombre: San Pedro y San Antonio
+    departamento_id: 13
+- model: domicilios.localidad
+  pk: 92
+  fields:
+    nombre: Santa Cruz y La Tuna
+    departamento_id: 13
+- model: domicilios.localidad
+  pk: 93
+  fields:
+    nombre: Villa Chigligasta
+    departamento_id: 13
+- model: domicilios.localidad
+  pk: 94
+  fields:
+    nombre: Yerba Buena
+    departamento_id: 13
+- model: domicilios.localidad
+  pk: 95
+  fields:
+    nombre: Tafí del Valle
+    departamento_id: 14
+- model: domicilios.localidad
+  pk: 96
+  fields:
+    nombre: Amaichá del Valle
+    departamento_id: 14
+- model: domicilios.localidad
+  pk: 97
+  fields:
+    nombre: Colalao del Valle
+    departamento_id: 14
+- model: domicilios.localidad
+  pk: 98
+  fields:
+    nombre: El Mollar
+    departamento_id: 14
+- model: domicilios.localidad
+  pk: 99
+  fields:
+    nombre: Tafí Viejo
+    departamento_id: 15
+- model: domicilios.localidad
+  pk: 100
+  fields:
+    nombre: Anca Juli
+    departamento_id: 15
+- model: domicilios.localidad
+  pk: 101
+  fields:
+    nombre: Choromoro
+    departamento_id: 15
+- model: domicilios.localidad
+  pk: 102
+  fields:
+    nombre: El Cadillal
+    departamento_id: 15
+- model: domicilios.localidad
+  pk: 103
+  fields:
+    nombre: La Esperanza
+    departamento_id: 15
+- model: domicilios.localidad
+  pk: 104
+  fields:
+    nombre: Las Talitas
+    departamento_id: 15
+- model: domicilios.localidad
+  pk: 105
+  fields:
+    nombre: Los Nogales
+    departamento_id: 15
+- model: domicilios.localidad
+  pk: 106
+  fields:
+    nombre: Raco
+    departamento_id: 15
+- model: domicilios.localidad
+  pk: 107
+  fields:
+    nombre: Trancas
+    departamento_id: 16
+- model: domicilios.localidad
+  pk: 108
+  fields:
+    nombre: San Pedro de Colalao
+    departamento_id: 16
+- model: domicilios.localidad
+  pk: 109
+  fields:
+    nombre: Tapia
+    departamento_id: 16
+- model: domicilios.localidad
+  pk: 110
+  fields:
+    nombre: Yerba Buena
+    departamento_id: 17
+- model: domicilios.localidad
+  pk: 111
+  fields:
+    nombre: Cevil Redondo
+    departamento_id: 17
+- model: domicilios.localidad
+  pk: 112
+  fields:
+    nombre: San Javier
+    departamento_id: 17

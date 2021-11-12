@@ -1,12 +1,49 @@
 {% extends "base-fluid.html" %}
 {% load static mis_tags %}
 {% load render_table from django_tables2 %}
+{% load crispy_forms_tags %}
 
 
-<!-- título de la página  -->
+{# título de la página #}
 {% block title %}
     {{view.model|verbose_name}}
 {% endblock title %} 
+
+
+{# estilo de la columna de filtro #}
+{% block css %}
+    <style>
+    .filter {
+        -ms-flex: 0 0 230px;
+        flex: 0 0 230px;
+    }
+    .sidebar {
+        background-color: gainsboro; 
+        border-radius: 10px;
+        margin-right: 15px;
+        padding: 20px 10px 20px 10px;
+        font-size: 0.8rem;
+    }
+    .form-group {
+        margin-bottom: 0.5rem;
+    }    
+    .form-control {
+        font-size: 0.8rem;
+    }
+    label {
+        margin-bottom: 0;
+    }
+    .form-row {
+        margin-top: 15px;
+    }
+
+    @media (max-width: 690px) {
+      .filter {
+        display: none; 
+      } 
+    }
+    </style>
+{% endblock css %}
 
 
 {% block content %}
@@ -14,7 +51,7 @@
         Listado de {{view.model|verbose_name_plural}}
         {% if add_permission %}
         <small class="float-sm-right">
-            <a href="{{view.model.get_create_url}}"
+            <a href="{{view.model.get_create_url}}?next={{request.get_full_path|urlencode}}"
                 class="btn btn-sm btn-success btn-icon-split mr-2">
                 <span class="icon text-white-50">
                     <i class="fa fa-plus"></i>
@@ -25,7 +62,7 @@
         {% endif %}
     </h1>
 
-    <!-- breadcrumb -->
+    {# breadcrumb #}
     {% if request.resolver_match.app_name|add:"/includes/breadcrumb.html"|template_exists %}
         {% include request.resolver_match.app_name|add:"/includes/breadcrumb.html" %}
     {% else %}
@@ -35,7 +72,7 @@
         </ol>
     {% endif %}
 
-    <!-- mensajes -->
+    {# mensaje #}
     {% if messages %}
         {% for message in messages %}
         <p class="alert alert-dismissable {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
@@ -45,9 +82,22 @@
         {% endfor %}
     {% endif %}
 
-    {% block tabla %}
+    {# si FilterSet está definida, se agregará una columna de filtro #}
+    {% if filter %}
+        <div class="row">
+            <div class="col">
+                {% render_table table %}
+            </div>
+            <div class="filter">
+                <div class="sidebar">{% crispy filter.form filter.form.helper %}</div>
+            </div>
+    
+        </div>
+
+    {% else %}
         {% render_table table %}
-    {% endblock tabla %}
+
+    {% endif %}
 
 {% endblock content %}
 
@@ -58,7 +108,7 @@
 {% endblock modal %}
 
 
-<!-- jscript de la página -->
+{# jscript de la página #}
 {% block js %}
     <script type="text/javascript">
         // Modal: vista de registro

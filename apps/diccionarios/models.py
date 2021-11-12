@@ -9,7 +9,6 @@ class Diccionario(Auditable):
         ('comunicacion', _('Comunicaciones')),
         ('tipo_domicilio', _('Tipo de Domicilio')),
         ('tipo_calle', _('Tipo de Calle')),
-        ('tipo_documento', _('Tipo de Documento')),
     )
 
     tabla = models.CharField(max_length=25, choices=TABLA, default='comunicacion')

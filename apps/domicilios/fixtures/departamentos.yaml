@@ -1,0 +1,85 @@
+- model: domicilios.departamento
+  pk: 1
+  fields:
+    nombre: Burruyacú
+    provincia_id: 1
+- model: domicilios.departamento
+  pk: 2
+  fields:
+    nombre: Capital
+    provincia_id: 1
+- model: domicilios.departamento
+  pk: 3
+  fields:
+    nombre: Chicligasta
+    provincia_id: 1
+- model: domicilios.departamento
+  pk: 4
+  fields:
+    nombre: Cruz Alta
+    provincia_id: 1
+- model: domicilios.departamento
+  pk: 5
+  fields:
+    nombre: Famaillá
+    provincia_id: 1
+- model: domicilios.departamento
+  pk: 6
+  fields:
+    nombre: Graneros
+    provincia_id: 1
+- model: domicilios.departamento
+  pk: 7
+  fields:
+    nombre: Juan Bautista Alberdi
+    provincia_id: 1
+- model: domicilios.departamento
+  pk: 8
+  fields:
+    nombre: La Cocha
+    provincia_id: 1
+- model: domicilios.departamento
+  pk: 9
+  fields:
+    nombre: Leales
+    provincia_id: 1
+- model: domicilios.departamento
+  pk: 10
+  fields:
+    nombre: Lules
+    provincia_id: 1
+- model: domicilios.departamento
+  pk: 11
+  fields:
+    nombre: Monteros
+    provincia_id: 1
+- model: domicilios.departamento
+  pk: 12
+  fields:
+    nombre: Río Chico
+    provincia_id: 1
+- model: domicilios.departamento
+  pk: 13
+  fields:
+    nombre: Simoca
+    provincia_id: 1
+- model: domicilios.departamento
+  pk: 14
+  fields:
+    nombre: Tafí del Valle
+    provincia_id: 1
+- model: domicilios.departamento
+  pk: 15
+  fields:
+    nombre: Tafí Viejo
+    provincia_id: 1
+- model: domicilios.departamento
+  pk: 16
+  fields:
+    nombre: Trancas
+    provincia_id: 1
+- model: domicilios.departamento
+  pk: 17
+  fields:
+    nombre: Yerba Buena
+    provincia_id: 1

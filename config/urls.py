@@ -23,8 +23,7 @@ urlpatterns = [
     path('cambiar_lenguaje/', 
             TemplateView.as_view(template_name='config/cambiar_lenguaje.html'), 
             name='cambiar_lenguaje'),
-
-    # path('autocrud/', include('core.autocrud.urls')),
+    path('select2/', include('django_select2.urls')),
 ]
 
 
@@ -39,7 +38,8 @@ urlpatterns += [
     path('accounts/', include('core.accounts.urls')),
     
     path('diccionarios/', include('apps.diccionarios.urls')),
-    # path('persona/', include('apps.persona.urls')),
+    path('personas/', include('apps.personas.urls')),
+    path('domicilios/', include('apps.domicilios.urls')),
 ]
 
 

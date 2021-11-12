@@ -1,0 +1,444 @@
+  - model: domicilios.domicilio
+  pk: 1
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: CRISOSTOMO ALVAREZ 1986
+- model: domicilios.domicilio
+  pk: 8
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: PJE MONSERRAT 2666
+- model: domicilios.domicilio
+  pk: 15
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: 20 DE JUNIO S/Nº - ALDERETES
+- model: domicilios.domicilio
+  pk: 17
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: EVARISTO CARRIEGO 1037
+- model: domicilios.domicilio
+  pk: 23
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: LAMADRID 3495
+- model: domicilios.domicilio
+  pk: 27
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: ECUADOR 495
+- model: domicilios.domicilio
+  pk: 29
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: VENEZUELA 540
+- model: domicilios.domicilio
+  pk: 39
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: LOS BULACIOS
+- model: domicilios.domicilio
+  pk: 46
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: AV MARTIN BERHO 699
+- model: domicilios.domicilio
+  pk: 55
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: CHILE 1280
+- model: domicilios.domicilio
+  pk: 57
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: 12 DE OCTUBRE 2385 - BLOCK B
+- model: domicilios.domicilio
+  pk: 62
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: SANTA FE 81  2P  A
+- model: domicilios.domicilio
+  pk: 64
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: MISIONES 236
+- model: domicilios.domicilio
+  pk: 66
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: CONGRESO 1325
+- model: domicilios.domicilio
+  pk: 69
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: RONDEAU 2782
+- model: domicilios.domicilio
+  pk: 75
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: ISABEL LA CATOLICA 649
+- model: domicilios.domicilio
+  pk: 86
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: MONTEAGUDO 2618
+- model: domicilios.domicilio
+  pk: 89
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: DON BOSCO 2919
+- model: domicilios.domicilio
+  pk: 93
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: 25 DE MAYO 2065
+- model: domicilios.domicilio
+  pk: 96
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: MZ C BLOCK A DTO 4 - Bº PROSPERO MENA
+- model: domicilios.domicilio
+  pk: 99
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: LOPEZ Y PLANES 887
+- model: domicilios.domicilio
+  pk: 102
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: MANUELA PEDRAZA 737
+- model: domicilios.domicilio
+  pk: 109
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: PJE FLORENCIO VARELA 1835
+- model: domicilios.domicilio
+  pk: 116
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: LAVAISSE 61 - VILLA AMALIA
+- model: domicilios.domicilio
+  pk: 119
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: AV EUDORO ARAOZ 132
+- model: domicilios.domicilio
+  pk: 123
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: PJE MAGALLANES 965
+- model: domicilios.domicilio
+  pk: 138
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: JOSE MALABIA 216 / C/GIBILISCO 
+- model: domicilios.domicilio
+  pk: 143
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: PJE LUIS SAENZ PEÑA 2679
+- model: domicilios.domicilio
+  pk: 151
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: PEDRO RIERA 264
+- model: domicilios.domicilio
+  pk: 156
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: PJE UNAMUNO 2563
+- model: domicilios.domicilio
+  pk: 161
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: EL CARMEN 10 - B R S / Mz casa 5 - los fresnos
+- model: domicilios.domicilio
+  pk: 167
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: EL CHAÑAR - TUCUMAN
+- model: domicilios.domicilio
+  pk: 169
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: LAPRIDA 1315 - BALCARCE 1293   (421-8036)
+- model: domicilios.domicilio
+  pk: 171
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: LAS HERAS 1946
+- model: domicilios.domicilio
+  pk: 179
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: RAMIREZ DE VELAZCO 575 - EL MANANTIAL
+- model: domicilios.domicilio
+  pk: 181
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: MATHEU 281
+- model: domicilios.domicilio
+  pk: 183
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: LAS PIEDRAS 3200
+- model: domicilios.domicilio
+  pk: 185
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: ALFONSINA STORNI 129
+- model: domicilios.domicilio
+  pk: 201
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: PANAMA 126
+- model: domicilios.domicilio
+  pk: 213
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: MZ C LOTE 4 - Bº SAN RAMON
+- model: domicilios.domicilio
+  pk: 221
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: MZ G CASA 36 - Bº MUTUAL POLICIAL
+- model: domicilios.domicilio
+  pk: 226
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: JUAN LUIS NOUGUES 1348
+- model: domicilios.domicilio
+  pk: 228
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: BALCARCE 1791
+- model: domicilios.domicilio
+  pk: 234
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: SAN MARTIN 4437
+- model: domicilios.domicilio
+  pk: 239
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: LAS HERAS 1531
+- model: domicilios.domicilio
+  pk: 248
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: LA PLATA 260
+- model: domicilios.domicilio
+  pk: 251
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: EL CHAÑAR
+- model: domicilios.domicilio
+  pk: 261
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: PJE PEDRO DE VALDIVIA 3285
+- model: domicilios.domicilio
+  pk: 268
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: RAUL COLOMBRES 1020
+- model: domicilios.domicilio
+  pk: 270
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: AV EJERCITO DEL NORTE Y
+- model: domicilios.domicilio
+  pk: 276
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: JUANA DE ARTAZA 772 - Vª ANGELINA
+- model: domicilios.domicilio
+  pk: 282
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: AV EVA PERON 200 - EL CORTE - ALDERETES
+- model: domicilios.domicilio
+  pk: 288
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: 9 DE JULIO 1347
+- model: domicilios.domicilio
+  pk: 293
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: JUJUY 4500
+- model: domicilios.domicilio
+  pk: 305
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: 9 DE JULIO 1253 - FLORIDA 548
+- model: domicilios.domicilio
+  pk: 307
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: SAAVEDRA 1580
+- model: domicilios.domicilio
+  pk: 309
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: TORO POZO - SANTIAGO DEL ESTERO
+- model: domicilios.domicilio
+  pk: 312
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: EMILIO CASTELAR 3351
+- model: domicilios.domicilio
+  pk: 316
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: FELIX FRIAS 470
+- model: domicilios.domicilio
+  pk: 319
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: ECUADOR 997
+- model: domicilios.domicilio
+  pk: 325
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: VENEZUELA 210
+- model: domicilios.domicilio
+  pk: 333
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: EL TIMBO - BURRUYACU
+- model: domicilios.domicilio
+  pk: 341
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: PERU 193 - B R S
+- model: domicilios.domicilio
+  pk: 345
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: JUANA DE AZURDUY 713
+- model: domicilios.domicilio
+  pk: 351
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: JUANA DE AZURDUY 724
+- model: domicilios.domicilio
+  pk: 355
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: LA PLATA 2318 - Bº 25 DE SEPTIEMBRE
+- model: domicilios.domicilio
+  pk: 361
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: ALBERDI 1006
+- model: domicilios.domicilio
+  pk: 369
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: URUGUAY 335
+- model: domicilios.domicilio
+  pk: 377
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: R OBLIGADO 1339
+- model: domicilios.domicilio
+  pk: 380
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: PJE 2 - Bº LA MERCED - SAN
+- model: domicilios.domicilio
+  pk: 382
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: Bº NESTOR LAZARTE - MZ C CASA 11 - LOS GUTIERREZ
+- model: domicilios.domicilio
+  pk: 384
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: PARAGUAY 2336
+- model: domicilios.domicilio
+  pk: 391
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: LOPEZ Y PLANES 439
+- model: domicilios.domicilio
+  pk: 396
+  fields:
+    tipo_domicilio_id: 5
+    tipo_calle_id: 9
+    nombre: VENEZUELA 2511

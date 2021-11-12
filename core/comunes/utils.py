@@ -70,3 +70,29 @@ class FilteredTableView(SingleTableView):
         context = super(FilteredTableView, self).get_context_data(**kwargs)
         context[self.context_filter_name] = self.filter
         return context
+
+
+def acciones_en_tabla(nombre_modelo):
+    # view con ventana modal
+    # <a href="{{record.get_read_url}}" class="text-info" title="Ver" data-toggle="modal" data-target="#viewModal" id="viewButton{{record.id}}"><i class="fa fa-eye">&nbsp;</i></a>
+    # view sin ventana modal
+    # <a href="{{record.get_read_url}}" class="text-info" data-toggle="tooltip" data-original-title="Ver"><i class="fa fa-eye">&nbsp;</i></a>
+
+    btnView = '{% if perms.{0}.view_{0} %}' + \
+              '<a href="{{record.get_read_url}}" class="text-info" title="Ver" data-toggle="modal" data-target="#viewModal" id="viewButton{{record.id}}"><i class="fa fa-eye">&nbsp;</i></a>' + \
+              '{% endif %} '
+    btnEdit = '{% if perms.{0}.change_{0} %}' + \
+              '<a href="{{record.get_update_url}}?next={{request.get_full_path|urlencode}}" class="text-primary" data-toggle="tooltip" data-original-title="Editar"><i class="fa fa-edit">&nbsp;</i></a>' + \
+              '{% endif %} '
+    btnDele = '{% if perms.{0}.delete_{0} %}' + \
+              '<a href="{{record.get_delete_url}}?next={{request.get_full_path|urlencode}}" class="text-danger" title="Eliminar" data-toggle="modal" data-target="#confirmDeleteModal" data-object="{{record}}" id="deleteButton{{record.id}}"><i class="fa fa-trash">&nbsp;</i></a>' + \
+              '{% endif %} '
+
+    btnView = ''
+    btnEdit = '{% if perms.{0}.change_{0} %}' + \
+              '<a href="{{record.get_update_url}}?next={{request.get_full_path|urlencode}}" class="text-secondary" data-toggle="tooltip" data-original-title="Editar"><i class="fa fa-edit">&nbsp;</i></a>' + \
+              '{% endif %} '
+    btnDele = '{% if perms.{0}.delete_{0} %}' + \
+              '<a href="{{record.get_delete_url}}?next={{request.get_full_path|urlencode}}" class="text-secondary" title="Eliminar" data-toggle="modal" data-target="#confirmDeleteModal" data-object="{{record}}" id="deleteButton{{record.id}}"><i class="fa fa-trash-alt">&nbsp;</i></a>' + \
+              '{% endif %} '
+    return (btnView + btnEdit + btnDele).replace("{0}", nombre_modelo)

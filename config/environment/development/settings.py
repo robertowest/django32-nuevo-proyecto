@@ -78,7 +78,7 @@ if DISABLE_USERNAME:
 # -------------------------------------------------------------------
 # tiempo de sesión
 # -------------------------------------------------------------------
-SESSION_COOKIE_AGE = 3600  # tiempo de vida de la sesión (10 minutos)
+SESSION_COOKIE_AGE = 36000  # tiempo de vida de la sesión (10 minutos)
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # cerrar sesión al cerrar navegador
 
 
@@ -99,6 +99,7 @@ settings.INSTALLED_APPS += [
     'crispy_forms',
     'django_tables2',
     'django_filters',
+    'django_select2',
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -108,9 +109,9 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # -------------------------------------------------------------------
 settings.INSTALLED_APPS += [
     'core.accounts',
-    # 'core.autocrud',
     'core.comunes',
 
     'apps.diccionarios',
-    # 'apps.test_autocrud',
+    'apps.personas',
+    'apps.domicilios',
 ]
