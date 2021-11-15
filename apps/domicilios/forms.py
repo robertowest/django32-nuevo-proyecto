@@ -3,6 +3,7 @@ from django import forms
 from crispy_forms import helper, layout
 from django_select2.forms import ModelSelect2Widget
 
+
 from .models import Provincia, Departamento, Localidad, Domicilio
 
 
