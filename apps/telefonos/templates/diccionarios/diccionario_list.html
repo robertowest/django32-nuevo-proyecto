@@ -1,0 +1,15 @@
+{% extends 'base-fluid.html' %}
+{% load render_table from django_tables2 %}
+
+{% block content %}
+    {% block table %}
+        {% if object_list %}
+            {% render_table table %}
+
+        {% else %}
+            <h1>No existen datos para mostrar.</h1>
+
+        {% endif %}
+    {% endblock table %}
+
+{% endblock content %}

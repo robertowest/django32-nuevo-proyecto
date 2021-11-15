@@ -40,6 +40,7 @@ urlpatterns += [
     path('diccionarios/', include('apps.diccionarios.urls')),
     path('personas/', include('apps.personas.urls')),
     path('domicilios/', include('apps.domicilios.urls')),
+    path('telefonos/', include('apps.telefonos.urls')),
 ]
 
 

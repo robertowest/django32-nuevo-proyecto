@@ -114,4 +114,5 @@ settings.INSTALLED_APPS += [
     'apps.diccionarios',
     'apps.personas',
     'apps.domicilios',
+    'apps.telefonos',
 ]
