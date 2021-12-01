@@ -142,3 +142,23 @@ def define(val=None):
         Usted está {{action}} un item !
     '''
     return val
+
+
+@register.filter(name='url_next')
+def url_next(url, next):
+    """retornar la clausula next de la url (si la tiene)"""
+    if "next=" in url:
+        pos = url.find("next=", 1, 100) + len("next=")
+        return url[pos:]
+    else:
+        return next
+
+
+@register.filter(name='cut_url_next')
+def cut_url_next(url):
+    """retornar la clausula next de la url"""
+    if "next=" in url:
+        pos = url.find("next=", 1, 100) + len("next=")
+        return url[pos:]
+    else:
+        return url_next(url, "/home")

@@ -74,7 +74,7 @@ class Auditable(models.Model):
             return reverse('%s:list' % self._meta.app_label)
 
     def get_list_url(self):
-        self.get_absolute_url()
+        return self.get_absolute_url()
 
     def get_detail_url(self):
         try:

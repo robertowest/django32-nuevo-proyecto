@@ -5,66 +5,66 @@
 
 
 <!-- título de la página  -->
-{% block title %}{{view.model|verbose_name}}{% endblock %} 
+{% block title %}
+    {{view.model|verbose_name}}
+{% endblock %} 
 
 
 <!-- estilos personalizados  -->
 {% block css %}
-
     <!-- django.select2 -->
-    {# http://select2.github.io/select2-bootstrap-theme/4.0.3.html #}
-    {% comment %}{{ form.media.css }}{% endcomment %}
-    <link href="{% static 'vendors/select2/css/select2.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendors/select2/css/select2.css' %}" rel="stylesheet" />
     <link href="{% static 'vendors/select2/css/django_select2.css' %}" rel="stylesheet" />
-
 {% endblock css %}
 
 
 {% block content %}
+    <div class="container-fluid">
+        <h1 class="mt-4">
+            {% if form.instance.pk %}Modificación de {# form.instance #}
+            {% else %}Nuevo {% endif%}
+            {{view.model|verbose_name}}
+        </h1>
 
-<p>URL of this page: {{ request.get_full_path }}</p>
+        <!-- breadcrumb -->
+        {% if request.resolver_match.app_name|add:"/includes/breadcrumb.html"|template_exists %}
+            {% include request.resolver_match.app_name|add:"/includes/breadcrumb.html" %}
+        {% else %}
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                {% if "next" in request.get_full_path %}
+                    <li class="breadcrumb-item">
+                        <a href="{{request.get_full_path|cut_url_next}}">Regresar</a>
+                    </li>
+                {% else %}
+                    <li class="breadcrumb-item">
+                        <a href="{{view.model.get_list_url}}">Tabla</a>
+                    </li>
+                {% endif %}
+                <li class="breadcrumb-item active">Formulario</li>
+            </ol>            
+        {% endif %}
 
-        <div class="container-fluid">
-            <h1 class="mt-4">
-                {% if form.instance.pk %}Modificación de {# form.instance #}
-                {% else %}Nuevo {% endif%}
-                {{view.model|verbose_name}}
-            </h1>
-
-            <!-- breadcrumb -->
-            {% if request.resolver_match.app_name|add:"/includes/breadcrumb.html"|template_exists %}
-                {% include request.resolver_match.app_name|add:"/includes/breadcrumb.html" %}
-            {% else %}
-                <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="{{view.model.get_list_url}}">Tabla</a></li>
-                    <li class="breadcrumb-item active">Formulario</li>
-                </ol>            
-            {% endif %}
-
-            <div class="jumbotron {{columns}} mx-auto">
-                {% crispy form %}
-            </div>
+        <div class="jumbotron {{columns}} mx-auto">
+            {% crispy form %}
         </div>
-
+    </div>
 {% endblock content %}
 
 
 <!-- jscript de la página  -->
 {% block js %}
-
     <!-- django.select2 -->
-    {% comment %}{{ form.media.js }}{% endcomment %}
     <script src="{% static 'vendors/select2/js/select2.min.js' %}"></script>
     <script src="{% static 'vendors/select2/js/django_select2.js' %}"></script> 
     <script src="{% static 'vendors/select2/js/es.js' %}"></script>
     <script type="text/javascript">
-        // definimos el theme para todos los select2
-        $.fn.select2.defaults.set("theme", "bootstrap");
-        // select2-container select2-container--default select2-container--below
-        // $(".select2-container--below").last().addClass("select");
-        // $(".select2-container--below").last().addClass("form-control");
-        // $(".select2-container--below").last().addClass("custom-select");
+        // $.fn.select2.defaults.set("theme", "bootstrap");
+        $.fn.select2.defaults.set("theme", "classic");
+        $('.modelselect2widget').select2({
+            width: 'resolve',
+            placeholder: 'Select an option',
+        });
     </script>
 
 {% endblock js %}

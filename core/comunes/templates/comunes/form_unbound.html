@@ -12,7 +12,8 @@
 <!-- estilos personalizados  -->
 {% block stylesheets %}
     <!-- django.select2 -->
-    {{ form.media.css }}
+    <link href="{% static 'vendors/select2/css/select2.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendors/select2/css/django_select2.css' %}" rel="stylesheet" />
 {% endblock stylesheets %}
 
 
@@ -52,5 +53,7 @@
 <!-- jscript de la página  -->
 {% block js %}
     <!-- django.select2 -->
-    {{ form.media.js }}
+    <script src="{% static 'vendors/select2/js/select2.min.js' %}"></script>
+    <script src="{% static 'vendors/select2/js/django_select2.js' %}"></script> 
+    <script src="{% static 'vendors/select2/js/es.js' %}"></script>
 {% endblock js %}
