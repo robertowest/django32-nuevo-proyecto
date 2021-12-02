@@ -102,6 +102,10 @@ settings.INSTALLED_APPS += [
     'django_select2',
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# posibles variables para select2
+# SELECT2_JS = 'assets/js/select2.min.js'
+# SELECT2_CSS = 'assets/css/select2.css'
+# SELECT2_I18N_PATH = 'assets/js/i18n'
 
 
 # -------------------------------------------------------------------

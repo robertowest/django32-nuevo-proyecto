@@ -9,34 +9,33 @@ from .models import Provincia, Departamento, Localidad, Domicilio
 
 class DomicilioForm(forms.ModelForm):
     provincia = forms.ModelChoiceField(
-        queryset = Provincia.objects.filter(active=True).filter(pais_id=1),
+        queryset = Provincia.objects.filter(active=True).filter(pais_id=1).order_by('nombre'),
         required = False,
         widget = ModelSelect2Widget(
             model = Provincia,
             search_fields = ['nombre__icontains'],
-            attrs = {'data-minimum-input-length': 0},
+            attrs = {'data-minimum-input-length': 0, 'style': 'width: 100%;'},
         )
     )
     departamento = forms.ModelChoiceField(
-        queryset = Departamento.objects.filter(active=True),
+        queryset = Departamento.objects.filter(active=True).order_by('nombre'),
         required=False, label = 'Dpto.',
         widget = ModelSelect2Widget(
             model = Departamento,
             search_fields = ['nombre__icontains'],
             dependent_fields = {'provincia': 'provincia'},
-            attrs = {'data-minimum-input-length': 0},
+            attrs = {'data-minimum-input-length': 0, 'style': 'width: 100%;'},
             max_results = 50,
-            select2_options ={ 'width': '100%' },
         ),
     )
     localidad = forms.ModelChoiceField(
-        queryset = Localidad.objects.filter(active=True),
+        queryset = Localidad.objects.filter(active=True).order_by('nombre'),
         required = False,
         widget = ModelSelect2Widget(
             model = Localidad,
             search_fields = ['nombre__icontains'],
             dependent_fields = {'departamento': 'departamento'},
-            attrs = {'data-minimum-input-length': 0},
+            attrs = {'data-minimum-input-length': 0, 'style': 'width: 100%;'},
             max_results = 50,
         )
     )
