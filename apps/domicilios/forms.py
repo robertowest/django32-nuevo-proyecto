@@ -3,7 +3,6 @@ from django import forms
 from crispy_forms import helper, layout
 from django_select2.forms import ModelSelect2Widget
 
-
 from .models import Provincia, Departamento, Localidad, Domicilio
 
 
@@ -19,7 +18,8 @@ class DomicilioForm(forms.ModelForm):
     )
     departamento = forms.ModelChoiceField(
         queryset = Departamento.objects.filter(active=True).order_by('nombre'),
-        required=False, label = 'Dpto.',
+        label = u'Dpto.',
+        required=False, 
         widget = ModelSelect2Widget(
             model = Departamento,
             search_fields = ['nombre__icontains'],

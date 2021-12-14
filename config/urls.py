@@ -37,10 +37,13 @@ urlpatterns += [
 
     path('accounts/', include('core.accounts.urls')),
     
+    # tablas
     path('diccionarios/', include('apps.diccionarios.urls')),
     path('personas/', include('apps.personas.urls')),
     path('domicilios/', include('apps.domicilios.urls')),
     path('telefonos/', include('apps.telefonos.urls')),
+
+    path('contactos/', include('apps.contactos.urls')),
 ]
 
 

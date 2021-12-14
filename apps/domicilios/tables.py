@@ -1,9 +1,6 @@
 import django_tables2 as tables
-
 from django.utils.translation import gettext_lazy as _
-
 from core.comunes.utils import acciones_en_tabla
-
 from .models import Domicilio
 
 
@@ -12,7 +9,10 @@ class DomicilioTable(tables.Table):
 
     tipo_domicilio = tables.Column(orderable=False)
     tipo_calle = tables.Column(orderable=False)
-    domicilio_corto = tables.Column(orderable=False, verbose_name='Domicilio')
+    domicilio_corto = tables.Column(verbose_name='Domicilio', orderable=False)
+    # domicilio_corto = tables.Column(verbose_name='Domicilio', orderable=False, linkify=True)
+    # domicilio_corto = tables.Column(verbose_name='Domicilio', orderable=False, 
+    #     linkify=("domicilios:update", {"pk": tables.A("pk")}) )  # ?next={{request.get_full_path|urlencode}}
     active = tables.BooleanColumn(orderable=False)
     actions = tables.TemplateColumn(template_code=ACTIONS, verbose_name='Acciones', orderable=False)
     

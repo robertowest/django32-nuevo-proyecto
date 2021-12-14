@@ -2,6 +2,7 @@ import datetime
 
 from django import template
 from django.db.models.query import QuerySet
+from django.utils.http import urlencode
 
 register = template.Library()
 
@@ -158,6 +159,7 @@ def url_next(url, next):
 def cut_url_next(url):
     """retornar la clausula next de la url"""
     if "next=" in url:
+        url = url.replace('%3F', '?').replace('%3D', '=').replace('%26', '&')
         pos = url.find("next=", 1, 100) + len("next=")
         return url[pos:]
     else:

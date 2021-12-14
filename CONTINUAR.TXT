@@ -1,0 +1,102 @@
+#
+# js para desactivar los select de domicilios cuando el padre está vacio
+#
+<script type="text/javascript">
+$(document).ready(function() {
+    if ( $("select[name=provincia]").val() === '' ) {
+        $("select[name=departamento]").prop('disabled', 'false');
+        $("select[name=localidad]").prop('disabled', 'false');
+    }
+});
+
+$("select[name=provincia]").change(function() {
+    $("select[name=departamento]").prop('disabled', $(this).val() === '');
+});
+
+$("select[name=departamento]").change(function() {
+    $("select[name=localidad]").prop('disabled', $(this).val() === '');
+    $($(this).val()).prop('disabled', $("select[name=provincia]").val() === '');
+});
+
+$("select[name=localidad]").change(function() {
+    $($(this).val()).prop('disabled', $("select[name=departamento]").val() === '');
+});
+
+</script>
+
+
+
+// $(document).ready(function(){
+    //     $("select[name=provincia]").change(function(){
+    //         alert($('select[name=provincia]').val());
+    //         // $('input[name=valor1]').val($(this).val());
+    //     });
+    // });
+
+    $("select[name=provincia]").change(function() {
+        if ( $(this).val() === '' ) {
+            $("select[name=departamento]").empty();
+            $("select[name=localidad]").empty();
+        }
+        
+        $("select[name=departamento]").prop('disabled', $(this).val() === '');
+        $("select[name=localidad]").prop('disabled', $("select[name=departamento]").val() === '');
+    });
+
+    $("select[name=departamento]").change(function() {
+        $("select[name=localidad]").empty();
+        $("select[name=localidad]").prop('disabled', $(this).val() === '');
+    });
+
+
+
+
+
+
+
+    $(document).ready(function() {
+        if ( $("select[name=provincia]").val() === '' ) {
+            $("select[name=departamento]").prop('disabled', 'false');
+            $("select[name=localidad]").prop('disabled', 'false');
+            $("select[name=departamento]").empty();
+            $("select[name=localidad]").empty();
+        }
+    });
+
+    $("select[name=provincia]").change(function() {
+        if ( $("select[name=provincia]").val() === '' ) {
+            alert("prov apaga");
+            // $("select[name=departamento]").empty();
+            $("select[name=departamento]").prop('disabled', 'false');
+            // $("select[name=localidad]").empty();
+            $("select[name=localidad]").prop('disabled', 'false');
+        } else {
+            $("select[name=departamento]").prop('disabled', $(this).val() === '');
+            alert("prov apaga 2");
+            // $("select[name=localidad]").empty();
+            $("select[name=localidad]").prop('disabled', 'false');
+        }
+    });
+
+    $("select[name=departamento]").change(function() {
+        if ( $("select[name=departamento]").val() === '' ) {
+            alert("depa apaga");
+            // $("select[name=localidad]").empty();
+            $("select[name=localidad]").prop('disabled', 'false');
+        } else {
+            alert("depa apaga 2");
+            $("select[name=localidad]").prop('disabled', $(this).val() === '');
+        }
+    });
+
+    $("select[name=localidad]").change(function() {
+        
+    });
+
+
+
+# 
+# desde modificacion de domicilio teno problemas para regresar utilizando ?next
+# 
+http://localhost:8000/domicilios/listado/%3Fnombre%3D%26provincia%3D%26tipo_domicilio%3D%26tipo_calle%3D10%26active%3Dunknown
+http://localhost:8000/domicilios/listado/?nombre=&provincia=&tipo_domicilio=&tipo_calle=10&active=unknown

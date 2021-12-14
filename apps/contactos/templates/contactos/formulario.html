@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% load static mis_tags %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <form method="post">
+        {% csrf_token %}
+        {% crispy form %}
+        {% crispy form_2 %}
+    </form>
+
+{% endblock content %}

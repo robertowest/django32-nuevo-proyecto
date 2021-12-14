@@ -29,6 +29,19 @@
                         <i class="fa fa-users"></i> Personas
                     </a>
                     {% endif %}
+
+                    {% if perms.domicilios.view_domicilio %}
+                    <a class="dropdown-item {% if '/domicilios/' in request.path_info %} active {% endif %}" href="{% url 'domicilios:list' %}">
+                        <i class="fa fa-map-marker-alt"></i> Domicilios
+                    </a>
+                    {% endif %}
+
+                    {% if perms.telefonos.view_domicilio %}
+                    <a class="dropdown-item {% if '/telefonos/' in request.path_info %} active {% endif %}" href="{% url 'telefonos:list' %}">
+                        <i class="fa fa-phone"></i> Teléfonos
+                    </a>
+                    {% endif %}
+
                 </div>
 
             </li>

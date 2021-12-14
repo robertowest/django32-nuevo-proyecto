@@ -86,7 +86,7 @@ class Domicilio(Auditable):
         verbose_name_plural = _('Domicilios')
 
     def __str__(self):
-        return self.nombre
+        return self.domicilio_largo
 
     @property
     def domicilio_corto(self):
@@ -96,7 +96,7 @@ class Domicilio(Auditable):
         return texto
 
     @property
-    def domicilio_larzo(self):
+    def domicilio_largo(self):
         texto = "%s %s" % (self.tipo_calle.texto, self.nombre)
         if self.numero:
             texto += " " + str(self.numero)

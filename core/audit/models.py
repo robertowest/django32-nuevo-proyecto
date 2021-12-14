@@ -69,12 +69,21 @@ class Auditable(models.Model):
 
     def get_absolute_url(self):
         try:
+            return reverse('%s:detail' % self._meta.model_name, args=(self.pk,))
+        except:
+            try:
+                return reverse('%s:detail' % self._meta.app_label, args=(self.pk,))
+            except:
+                try:
+                    return reverse('%s:update' % self._meta.model_name, args=(self.pk,))
+                except:
+                    return reverse('%s:update' % self._meta.app_label, args=(self.pk,))
+
+    def get_list_url(self):
+        try:
             return reverse('%s:list' % self._meta.model_name)
         except:
             return reverse('%s:list' % self._meta.app_label)
-
-    def get_list_url(self):
-        return self.get_absolute_url()
 
     def get_detail_url(self):
         try:
