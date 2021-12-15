@@ -1,0 +1,13 @@
+<ul class="list-group t20">
+    {% for item in object.telefonos.all %}
+        <li class="list-group-item">
+            <a href="{{item.get_delete_url}}" class="text-danger" title="Eliminar" data-toggle="modal" data-target="#confirmDeleteModal" data-object="{{item}}" id="deleteButton{{item.id}}">
+                <i class="fa fa-trash"></i>
+            </a>&nbsp;&nbsp;{{ item.texto }}
+        </li>
+    {% endfor %}
+</ul>
+
+
+
+

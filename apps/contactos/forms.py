@@ -3,6 +3,8 @@ from django_select2 import forms as s2forms
 
 from crispy_forms import helper, layout
 
+from apps.personas.models import Persona
+from apps.domicilios.models import Domicilio
 from apps.telefonos.models import Telefono
 from .models import Contacto, ContactosTelefonos
 
@@ -13,7 +15,7 @@ class CustomMMCF(forms.ModelMultipleChoiceField):
         return "%s" % member.telefono
 
 
-class ContactoForm(forms.ModelForm):
+class ContactoForm_OLD(forms.ModelForm):
     telefonos = CustomMMCF(
         queryset=ContactosTelefonos.objects.all(),
         widget=forms.CheckboxSelectMultiple
@@ -60,14 +62,67 @@ class ContactoForm(forms.ModelForm):
         # self.helper.layout.append(layout.HTML(bCancel))
 
 
-class ContactoTelefonoUnBoundForm(forms.Form):
-    telefono = forms.ModelChoiceField(
-        queryset = Telefono.objects.filter(active=True),
+class ContactoForm(forms.ModelForm):
+    # no utilizaré el campo ManyToMany, lo usaré desde un segundo formulario
+    persona = forms.ModelChoiceField(
+        queryset = Persona.objects.filter(active=True),
         required = False,
         widget = s2forms.ModelSelect2Widget(
-            model = Telefono,
-            search_fields = ['texto__icontains'],
-            attrs = {'data-minimum-input-length': 0, 'style': 'width: 100%;'},
+            model = Persona,
+            search_fields = ['apellido__icontains'],
+            attrs = {'data-minimum-input-length': 3, 'style': 'width: 100%;'},
+        )
+    )
+    domicilio = forms.ModelChoiceField(
+        queryset = Domicilio.objects.filter(active=True),
+        required = False,
+        widget = s2forms.ModelSelect2Widget(
+            model = Domicilio,
+            search_fields = ['nombre__icontains'],
+            attrs = {'data-minimum-input-length': 3, 'style': 'width: 100%;'},
+        )
+    )
+    # ManyToMany con Checkbox
+    # telefonos = CustomMMCF(
+    #     queryset=ContactosTelefonos.objects.all(),
+    #     required = False,
+    #     widget=forms.CheckboxSelectMultiple
+    # )
+
+    class Meta:
+        model = Contacto
+        fields = ['persona', 'domicilio', 'active']
+
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        # creamos helper
+        self.helper = helper.FormHelper()
+        self.helper.form_id = "myform"
+
+        # creamos layouts
+        self.helper.layout = layout.Layout()
+
+        # agregamos todos los campos
+        for fld in self.Meta.fields:
+            self.helper.layout.append(fld)
+
+        # agregamos los botones de acción ( mr-2 )
+        bSave = '<button type="submit" class="btn btn-sm btn-primary btn-icon-split"><span class="icon text-white-50"><i class="fa fa-save"></i></span><span class="text"> Grabar</span></button>'
+        self.helper.layout.append(layout.HTML("<hr>"))
+        self.helper.layout.append(layout.HTML(bSave))
+
+
+class ContactoTelefonoUnBoundForm(forms.Form):
+    telefono = forms.ModelChoiceField(
+        label="",
+        queryset=Telefono.objects.filter(active=True),
+        required=False,
+        widget=s2forms.ModelSelect2Widget(
+            model=Telefono,
+            search_fields=['texto__icontains'],
+            attrs={'data-minimum-input-length': 3, 'style': 'width: 100%;'},
         )
     )
 
@@ -88,8 +143,3 @@ class ContactoTelefonoUnBoundForm(forms.Form):
         # agregamos todos los campos
         for fld in self.Meta.fields:
             self.helper.layout.append(fld)
-
-        # agregamos los botones de acción ( mr-2 )
-        bSave = '<button type="submit" class="btn btn-sm btn-primary btn-icon-split"><span class="icon text-white-50"><i class="fa fa-save"></i></span><span class="text"> Grabar</span></button>'
-        self.helper.layout.append(layout.HTML("<hr>"))
-        self.helper.layout.append(layout.HTML(bSave))

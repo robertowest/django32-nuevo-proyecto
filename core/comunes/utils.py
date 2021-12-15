@@ -87,7 +87,7 @@ def acciones_en_tabla(nombre_modelo):
     btnDele = '{% if perms.{0}.delete_{0} %}' + \
               '<a href="{{record.get_delete_url}}?next={{request.get_full_path|urlencode}}" class="text-danger" title="Eliminar" data-toggle="modal" data-target="#confirmDeleteModal" data-object="{{record}}" id="deleteButton{{record.id}}"><i class="fa fa-trash">&nbsp;</i></a>' + \
               '{% endif %} '
-
+    # sin colores
     btnView = ''
     btnEdit = '{% if perms.{0}.change_{0} %}' + \
               '<a href="{{record.get_update_url}}?next={{request.get_full_path|urlencode}}" class="text-secondary" data-toggle="tooltip" data-original-title="Editar"><i class="fa fa-edit">&nbsp;</i></a>' + \

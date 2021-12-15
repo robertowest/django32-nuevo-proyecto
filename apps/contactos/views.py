@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.http import HttpResponseRedirect
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import (TemplateView, 
@@ -13,7 +14,7 @@ from django_tables2 import SingleTableView
 from core.audit.models import AuditableMixin
 from core.comunes.utils import FilteredTableView, where_are_we_going
 
-from .models import Contacto
+from .models import Contacto, ContactosTelefonos
 from .tables import ContactoTable
 from .filters import ContactoFilter, ContactoFilterForm
 from .forms import ContactoForm, ContactoTelefonoUnBoundForm
@@ -70,7 +71,7 @@ class MyUpdateView(AuditableMixin, PermissionRequiredMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['columns'] = "col-12"
+        context['columns'] = "col-10"
         context['form_2'] = ContactoTelefonoUnBoundForm()   # (instance=self.model())
         return context
 
@@ -81,3 +82,20 @@ class MyUpdateView(AuditableMixin, PermissionRequiredMixin, UpdateView):
 
 class MyDeleteView(PermissionRequiredMixin, DeleteView):
     pass
+
+
+def get_comunicaciones(request, pk):
+    # request.is_ajax está en desuso desde la versión 3.1
+    is_ajax = request.META.get("HTTP_X_REQUESTED_WITH") == "XMLHttpRequest"
+    if is_ajax:
+        # pk = request.GET['persona']
+        # request.GET['telefono']
+        # TODO: grabar la relación
+        try:
+            ContactosTelefonos.objects.create(contacto_id=pk, telefono_id=request.GET['telefono'])
+        except Exception as error:
+            print( error )
+        finally:
+            return render(request, 
+                        'contactos/includes/comunicaciones_ajax.html', 
+                        {'object': Contacto.objects.get(id=pk)})

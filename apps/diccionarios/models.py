@@ -14,6 +14,7 @@ class Diccionario(Auditable):
     tabla = models.CharField(max_length=25, choices=TABLA, default='comunicacion')
     texto = models.CharField(max_length=150)
     texto_corto = models.CharField(max_length=5, null=True, blank=True, unique=True)
+    icono = models.CharField(max_length=20, null=True, blank=True)
 
     class Meta:
         db_table = 'diccionario'

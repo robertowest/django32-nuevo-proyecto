@@ -3,12 +3,78 @@
 {% load static mis_tags %}
 {% load crispy_forms_tags %}
 
+
+<!-- título de la página  -->
+{% block title %}
+    {{view.model|verbose_name}}
+{% endblock %} 
+
+
+<!-- estilos personalizados  -->
+{% block css %}
+    <!-- django.select2 -->
+    <link href="{% static 'vendors/select2/css/select2.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendors/select2/css/django_select2.css' %}" rel="stylesheet" />
+{% endblock css %}
+
+
 {% block content %}
+    <div class="container-fluid">
+        <h1 class="mt-4">
+            {% if form.instance.pk %}Modificación de {# form.instance #}
+            {% else %}Nuevo {% endif%}
+            {{view.model|verbose_name}}
+        </h1>
 
-    <form method="post">
-        {% csrf_token %}
-        {% crispy form %}
-        {% crispy form_2 %}
-    </form>
+        <!-- breadcrumb -->
+        {% if request.resolver_match.app_name|add:"/includes/breadcrumb.html"|template_exists %}
+            {% include request.resolver_match.app_name|add:"/includes/breadcrumb.html" %}
+        {% else %}
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                {% if "next" in request.get_full_path %}
+                    <li class="breadcrumb-item">
+                        <a href="{{request.get_full_path|cut_url_next}}">Regresar</a>
+                    </li>
+                {% else %}
+                    <li class="breadcrumb-item">
+                        <a href="{{view.model.get_list_url}}">Tabla</a>
+                    </li>
+                {% endif %}
+                <li class="breadcrumb-item active">Formulario</li>
+            </ol>            
+        {% endif %}
 
+        <div class="jumbotron {{columns}} mx-auto">
+            <div class="row">
+                <div class="col-6">
+                    {% crispy form %}
+                </div>
+                <div class="col-6">
+                    <p>Seleccione la comunicación que desea asignarle al contacto y pulse [Agregar], si desea eliminar alguna relación, pulse el ícono correspondiente.</p>
+                    {% crispy form_2 %}
+                    <div id="comunicaciones">
+                        {% include 'contactos/includes/comunicaciones_ajax.html' %}
+                    </div>
+                    <br>
+                    <a class="btn btn-sm btn-success btn-icon-split" 
+                       href="{% url 'contactos:get_comunicaciones' contacto.id %}"
+                       onclick="AgregarTelefono(this); return false;">
+                        <span class="icon text-white-50"><i class="fas fa-plus"></i></span>
+                        <span class="text">Agregar</span>
+                    </a>
+                </div>
+            </div>            
+        </div>
+    </div>
 {% endblock content %}
+
+<!-- jscript de la página  -->
+{% block js %}
+    <!-- django.select2 -->
+    <script src="{% static 'vendors/select2/js/select2.min.js' %}"></script>
+    <script src="{% static 'vendors/select2/js/django_select2.js' %}"></script> 
+    <script src="{% static 'vendors/select2/js/es.js' %}"></script>
+    <!-- campo ManyToMany -->
+    <script src="{% static 'js/contactos.js' %}"></script>
+{% endblock js %}

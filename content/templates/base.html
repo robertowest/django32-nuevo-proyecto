@@ -19,9 +19,16 @@
         <link rel="icon" href="{% static 'img/favicons/favicon.ico' %}">
 
         <!-- Bootstrap core CSS -->
-        <link href="{% static 'vendors/bootstrap/bootstrap.min.css' %}" rel="stylesheet" />
+        <link href="{% static 'vendors/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
         <link href="{% static 'css/estilo.css' %}" rel="stylesheet" />
 
+        <!-- Font Awesome -->
+        <script src="{% static 'vendors/fontawesome/all.min.js' %}"></script>
+        <!-- jQuery / Popper (bootstrap.bundle) / Bootstrap -->
+        <script src="{% static 'vendors/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'vendors/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <!-- <script src="{% static 'vendors/bootstrap/js/bootstrap.min.js' %}"></script> -->
+        
         <!-- CSS en cabecera  -->
         {% block css %}
         {% endblock css %}
@@ -49,13 +56,6 @@
         {% block modal %}
         {% endblock modal %}
 
-        <!-- Font Awesome -->
-        <script src="{% static 'vendors/fontawesome/all.min.js' %}"></script>
-        <!-- jQuery / Popper (bootstrap.bundle) / Bootstrap -->
-        <script src="{% static 'vendors/jquery/jquery.min.js' %}"></script>
-        <script src="{% static 'vendors/bootstrap/bootstrap.bundle.min.js' %}"></script>
-        <!-- script src="{% static 'vendors/bootstrap/bootstrap.min.js' %}"></script -->
-        
         <!-- JS en body -->
         {% block js %}
         {% endblock js %}

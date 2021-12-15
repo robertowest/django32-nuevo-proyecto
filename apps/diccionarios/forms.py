@@ -7,7 +7,7 @@ from .models import Diccionario
 class DiccionarioForm(forms.ModelForm):
     class Meta:
         model = Diccionario
-        fields = ['tabla', 'texto', 'texto_corto', 'active']
+        fields = ['tabla', 'texto', 'texto_corto', 'icono', 'active']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

@@ -13,4 +13,6 @@ urlpatterns = [
     path('<int:pk>/', views.MyReadView.as_view(), name='read'),
     path('<int:pk>/modificar/', views.MyUpdateView.as_view(), name='update'),
     path('<int:pk>/eliminar/', views.MyDeleteView.as_view(), name='delete'),
+
+    path('<int:pk>/comunicaciones/', views.get_comunicaciones, name='get_comunicaciones'),
 ]

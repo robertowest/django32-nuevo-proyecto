@@ -104,8 +104,8 @@ settings.INSTALLED_APPS += [
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # posibles variables para select2
 SELECT2_CSS = '/static/vendors/select2/css/select2.css'
-SELECT2_JS = '/static/vendors/select2/js/select2.min.js'
-SELECT2_I18N_PATH = '/static/vendors/select2/js/es.js'
+SELECT2_JS = '/static/vendors/select2/js/select2.js'
+SELECT2_I18N_PATH = '/static/vendors/select2/js'
 
 
 # -------------------------------------------------------------------
